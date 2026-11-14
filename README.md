@@ -21,7 +21,7 @@ This project analyses 36 months of street-level crime data from October 2023 to 
 
 ## Problem Statement
 A key decision maker for the Thames Valley Police is trying to decide where and when to focus resources, with a view of reducing crime in the region.
-He is finding it hard to see crime patterns across **XXX** areas that the force operate, over the 36 months of basic crime data that he has, which makes planning feel like guesswork. *Can we Help?*
+He is finding it hard to see crime patterns across **XXX** areas that the force operate, over the 36 months of basic crime data that he has, and over **XXX** crimes having been reported in that time - which makes planning feel like guesswork. ***Can we Help?***
 
 ## Key Analytical Questions
 
