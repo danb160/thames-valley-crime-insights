@@ -89,7 +89,7 @@ thames-valley-crime-insights/
 +---data
 |   +---clean
 |   \---raw             # Containing 36 monthly raw .csv files
-|         
+|       
 \---jupyter_notebooks
 |  01_ETL.ipynb         # Loading, cleaning and combining the raw data
 +---app.py
@@ -139,19 +139,23 @@ thames-valley-crime-insights/
 ## Bugs / Technical Issues Encountered
 
 **ppscore install error**
+
 - **Problem:** Installing ppscore 1.1.0 failed with `ModuleNotFoundError: No module named 'pkg_resources'`.
 - **Cause:** ppscore is an older package that relies on a part of setuptools that newer versions have removed.
 - **Fix:** Installed an older setuptools with `pip install "setuptools<81" wheel`, then installed ppscore with `pip install --no-build-isolation ppscore==1.1.0`.
 - **Note:** ppscore is only used locally for analysis and is removed from `requirements.txt` before deploying to Heroku.
-- **AI** Claude was used to troubleshoot and help resolve this (see AI usage section).
+- **AI:** Claude was used to troubleshoot and help resolve this (see AI use section).
 
 ---
 
 ## How to Run This Project
 
-- Clone this repository to your local machine
-- Install the required Python packages using your terminal:
+- Clone this repository to your local machine.
+- Create a virtual environment using Python 3.12.8 and activate it.
+- Install the older setuptools needed for ppscore, then the required Python packages:
 
 ```bash
+pip install "setuptools<81" wheel
+pip install --no-build-isolation ppscore==1.1.0
 pip install -r requirements.txt
 ```
