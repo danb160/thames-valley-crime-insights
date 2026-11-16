@@ -38,6 +38,30 @@ He is finding it hard to see crime patterns across **XXX** areas that the force 
 
 ## Tools and Technology Used
 
+**VS Code** - (IDE) Integrated Development Environment
+
+**Jupyter Notebooks** - As the working environment
+
+**Python** - As the programming language (Version 3.12.8)
+
+**Pandas and NumPy** For cleaning, filtering, and organising data
+
+**Matplotlib, Seaborn & Plotly** ############# CHECK WHICH OUT OF THESE I HAVE USED ###################
+
+**Streamlit** - To create the dashboard
+
+**Heroku** Hosting for the dashboard
+
+## AI Use
+
+While these AI tools were used to support development and brainstorming, the core design, structure, and development taken for the project are my own. Where AI suggestions or outputs were given I personally reviewed, adapted and implimented the code to verify it's accuracy to ensure that it aligned with the overall goals of the project.
+
+**AI - Google Gemini** - Initial discussion to assess the viability of the project and dataset
+
+**AI - Claude** - Code assistance, data handlin, project management and problem solving
+
+**Ai - Github Copilot** - Assistance with inline code suggestions
+
 ---
 
 ## How the project is organised
@@ -91,3 +115,4 @@ He is finding it hard to see crime patterns across **XXX** areas that the force 
 
 ```bash
 pip install -r requirements.txt
+```
