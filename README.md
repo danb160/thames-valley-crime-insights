@@ -97,23 +97,6 @@ thames-valley-crime-insights/
 +---requirements.txt
 \---README.md
 
-
-
-
-
-`data` : Data files used for this project
-
-`data/raw/`: Containing all raw data data .csv files
-
-`data/clean` : Conataining the clean dataset
-
-<br>
-
-`Jupyter_notebooks`
-
-`jupyter_notebooks/01_ETL.ipynb` : Extract, Transform and Lo
-
-EDA
 ---
 
 ## Methodology and Data Management
