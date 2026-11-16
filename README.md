@@ -82,6 +82,38 @@ While these AI tools were used to support development and brainstorming, the cor
 
 ---
 
+## How the project is organised
+
+```
+thames-valley-crime-insights/
++---data
+|   +---clean
+|   \---raw             # Containing 36 monthly raw .csv files
+|           
+\---jupyter_notebooks
+|  01_ETL.ipynb         # Loading, cleaning and combining the raw data
++---app.py
++---Procfile
++---requirements.txt
+\---README.md
+
+
+
+
+
+`data` : Data files used for this project
+
+`data/raw/`: Containing all raw data data .csv files
+
+`data/clean` : Conataining the clean dataset
+
+<br>
+
+`Jupyter_notebooks`
+
+`jupyter_notebooks/01_ETL.ipynb` : Extract, Transform and Lo
+
+EDA
 ---
 
 ## Methodology and Data Management
