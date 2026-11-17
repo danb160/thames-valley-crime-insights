@@ -30,12 +30,22 @@ They are finding it hard to see crime patterns across 13 areas that the force op
 
 **Data Source:** [Thames Valley Police street-level crime data](https://data.police.uk/data/)
 
-**Size - Raw Data** is comprised of 36 monthly CSV files saved in `data/raw`.
+**Size - Raw Data** comprised of 36 monthly CSV files saved in `data/raw`.
 - 592,926 rows and 12 columns
-- 131.9 MB on disk, 375.1 in memory
+- 131.9 MB on disk, 375.1 MB in memory
 
-**Size - Cleaned Data**
+<br>
 
+**Size - Cleaned Data** comprised of 3 CSV files saved in `data/clean`.
+- `crime_clean.csv` - 579,772 rows and 4 columns, 29.1 MB (one row per crime)
+- `crime_summary.csv` - 6,552 rows and 5 columns, 0.3 MB (crime counts per month, season, area and crime type)
+- `area_locations.csv` - 13 rows and 3 columns, 423 bytes (centre point of each area)
+
+<br>
+
+The cleaned dataset is 78% smaller on disk than the raw data, and uses 106.6 MB in memory instead of 375.1 MB (72% smaller).
+
+This makes using the datasets both faster and more efficient. 
 
 ## Other Reference Sources
 
