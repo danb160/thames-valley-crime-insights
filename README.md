@@ -76,7 +76,7 @@ While these AI tools were used to support development and brainstorming, the cor
 
 **AI - Google Gemini** - Initial discussion to assess the viability of the project and dataset
 
-**AI - Claude** - Code assistance, data handling, project management, problem solving, and proofreading
+**AI - Claude** - Code assistance, data handling, assistance with explanations, project management, problem solving, and proofreading
 
 **AI - GitHub Copilot** - Assistance with inline code suggestions
 
@@ -124,11 +124,36 @@ thames-valley-crime-insights/
 
 ---
 
+## Hypothesis (Question 4)
+
+XXX
+
+---
+
 ## Conclusion
 
 ---
 
 ## Recognised Limitations
+
+**From Data Cleaning**
+- **Crimes with no location** - 13,132 crimes (2.21%) were removed. Violence and sexual offences, and drugs are slightly undercounted by area as a result.
+- **Crimes outside Thames Valley** - 22 crimes recorded just outside the borders of the official areas (Central Bedfordshire, Dacorum, and Basingstoke and Deane) were removed. They are too few to affect the results.
+- **Possible double counting** - 163 Crime IDs appear more than once (194 extra rows, 0.03%). These were kept, as they are too few to affect the results.
+
+
+**From the Data**
+- **Counts, not rates** - Larger areas naturally have more crime. Adding population data would allow a fairer comparison.
+- **Approximate locations** - Crimes are mapped to a nearby point for privacy.
+- **Recorded crime only** - Unreported crime is not included, so the real level of some crimes may be higher.
+- **Monthly data only** - No day or time, so seasons are based on the month.
+- **Three years only** - Each season only appears three times, which limits the trend analysis.
+
+---
+
+## Further Development
+
+- Add ONS data to investigate crimes per 1,000 people instead of as raw counts. This would give a fairer comparison as larger areas such as Buckinghamshire naturally have more reported crime.
 
 ---
 
