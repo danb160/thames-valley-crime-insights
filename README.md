@@ -30,22 +30,24 @@ They are finding it hard to see crime patterns across 13 areas that the force op
 
 **Data Source:** [Thames Valley Police street-level crime data](https://data.police.uk/data/)
 
-**Size - Raw Data** comprised of 36 monthly CSV files saved in `data/raw`.
+**Size - Raw Data** made up of 36 monthly CSV files saved in `data/raw`.
+
 - 592,926 rows and 12 columns
 - 131.9 MB on disk, 375.1 MB in memory
 
 <br>
 
-**Size - Cleaned Data** comprised of 3 CSV files saved in `data/clean`.
+**Size - Cleaned Data** made up of 3 CSV files saved in `data/clean`.
+
 - `crime_clean.csv` - 579,772 rows and 4 columns, 29.1 MB (one row per crime)
 - `crime_summary.csv` - 6,552 rows and 5 columns, 0.3 MB (crime counts per month, season, area and crime type)
 - `area_locations.csv` - 13 rows and 3 columns, 423 bytes (centre point of each area)
 
 <br>
 
-The cleaned dataset is 78% smaller on disk than the raw data, and uses 106.6 MB in memory instead of 375.1 MB (72% smaller).
+`crime_clean.csv` is 78% smaller on disk than the raw data, and uses 106.6 MB in memory instead of 375.1 MB (72% smaller).
 
-This makes using the datasets both faster and more efficient. 
+This makes using the datasets both faster and more efficient.
 
 ## Other Reference Sources
 
@@ -106,7 +108,7 @@ thames-valley-crime-insights/
 +---data
 |   +---clean
 |   \---raw             # Containing 36 monthly raw .csv files
-|       
+|     
 \---jupyter_notebooks
 |  01_ETL.ipynb         # Loading, cleaning and combining the raw data
 +---app.py
@@ -154,12 +156,13 @@ XXX
 ## Recognised Limitations
 
 **From Data Cleaning**
+
 - **Crimes with no location** - 13,132 crimes (2.21%) were removed. Violence and sexual offences, and Drugs are slightly under-counted by area, and Anti-social behaviour slightly over-represented, but the effect is small and does not change which crimes types are most common.
 - **Crimes outside Thames Valley** - 22 crimes recorded in Central Bedfordshire, Dacorum, and Basingstoke and Deane were removed, as these are not among the [13 local authorities that make up the Thames Valley Police area](https://www.westberks.gov.uk/article/42710/Police-Area-Returning-Officer-PARO-2024).
 - **Possible double counting** - 163 Crime IDs appear more than once (194 extra rows, 0.03%). These were kept, as they are too few to affect the results.
 
-
 **From the Data**
+
 - **Counts, not rates** - Larger areas naturally have more crime. Adding population data would allow a fairer comparison.
 - **Approximate locations** - Crimes are mapped to a nearby point for privacy.
 - **Recorded crime only** - Unreported crime is not included, so the real level of some crimes may be higher.
