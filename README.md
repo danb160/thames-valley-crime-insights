@@ -26,13 +26,20 @@ They are finding it hard to see crime patterns across 13 areas that the force op
 
 ---
 
-## Dataset
+## Core Dataset
 
 **Data Source:** [Thames Valley Police street-level crime data](https://data.police.uk/data/)
 
-**Size - Raw Data** is comprised of 36 monthly CSV files saved in `../data/raw`. There are
+**Size - Raw Data** is comprised of 36 monthly CSV files saved in `data/raw`.
+- 592,926 rows and 12 columns
+- 131.9 MB on disk, 375.1 in memory
 
 **Size - Cleaned Data**
+
+
+## Other Reference Sources
+
+[13 local authorities that make up the Thames Valley Police area](https://www.westberks.gov.uk/article/42710/Police-Area-Returning-Officer-PARO-2024) - West Berkshire Council
 
 ---
 
@@ -138,7 +145,7 @@ XXX
 
 **From Data Cleaning**
 - **Crimes with no location** - 13,132 crimes (2.21%) were removed. Violence and sexual offences, and drugs are slightly undercounted by area as a result.
-- **Crimes outside Thames Valley** - 22 crimes recorded just outside the borders of the official areas (Central Bedfordshire, Dacorum, and Basingstoke and Deane) were removed. They are too few to affect the results.
+- **Crimes outside Thames Valley** - 22 crimes recorded in Central Bedfordshire, Dacorum, and Basingstoke and Deane were removed, as these are not among the [13 local authorities that make up the Thames Valley Police area](https://www.westberks.gov.uk/article/42710/Police-Area-Returning-Officer-PARO-2024).
 - **Possible double counting** - 163 Crime IDs appear more than once (194 extra rows, 0.03%). These were kept, as they are too few to affect the results.
 
 
