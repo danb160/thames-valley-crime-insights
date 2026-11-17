@@ -154,7 +154,7 @@ XXX
 ## Recognised Limitations
 
 **From Data Cleaning**
-- **Crimes with no location** - 13,132 crimes (2.21%) were removed. Violence and sexual offences, and drugs are slightly undercounted by area as a result.
+- **Crimes with no location** - 13,132 crimes (2.21%) were removed. Violence and sexual offences, and Drugs are slightly under-counted by area, and Anti-social behaviour slightly over-represented, but the effect is small and does not change which crimes types are most common.
 - **Crimes outside Thames Valley** - 22 crimes recorded in Central Bedfordshire, Dacorum, and Basingstoke and Deane were removed, as these are not among the [13 local authorities that make up the Thames Valley Police area](https://www.westberks.gov.uk/article/42710/Police-Area-Returning-Officer-PARO-2024).
 - **Possible double counting** - 163 Crime IDs appear more than once (194 extra rows, 0.03%). These were kept, as they are too few to affect the results.
 
