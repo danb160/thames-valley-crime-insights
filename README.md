@@ -136,9 +136,9 @@ thames-valley-crime-insights/
 
    - Crime does differ in the 13 areas in two main ways in **how much** and **which types** make up the biggest share.
   
-   - **Buckinghamshire** (18.61%) and **Milton Keynes** (15.57%) record the most crime. **West Oxfordshire** (3.04%) and **South Oxfordshire** (3.85%) record the least crime.
+   - **Buckinghamshire** (18.61%) and **Milton Keynes** (15.57%) record the most crime. **West Oxfordshire** (3.04%) and **South Oxfordshire** (3.85%) record the least (percentages are each area's share of all Thames Valley crime).
    - **Violence and sexual offences** is the largest everywhere (ranging 32% to 44%).
-   - Some crime types stand out in particular areas:
+   - Some crime types stand out in particular areas (as a percentage of that area's total crime):
       - **Shoplifting** in Reading (14%), Oxford (13%) and Cherwell (13%).
       - **Bicycle theft** in Oxford 6% (at least 3 times higher than anywhere else).
       - **Vehicle crime** in Slough and Windsor and Maidenhead (8 to 9%).
