@@ -130,15 +130,36 @@ thames-valley-crime-insights/
    - The top 3 crime types (**Violence and sexual offences**, **Anti-social behaviour** and **Shoplifting**) make up 57.85% of all recorded crime over 36 months, which is more than half.
    - The least common crime types are **Possession of weapons** (4,053, 0.7%), **Robbery** (5,886, 1.02%) and **Theft from the person** (6,669, 1.15%). Together they make up only 2.87% of all crime.
 
+<br>
+
 2. How does crime differ between the 13 areas?
 
-   xxxxxxxxx
+   - Crime does differ in the 13 areas in two main ways in **how much** and **which types** make up the biggest share.
+  
+   - **Buckinghamshire** (18.61%) and **Milton Keynes** (15.57%) record the most crime. **West Oxfordshire** (3.04%) and **South Oxfordshire** (3.85%) record the least crime.
+   - **Violence and sexual offences** is the largest everywhere (ranging 32% to 44%).
+   - Some crime types stand out in particular areas:
+      - **Shoplifting** in Reading (14%), Oxford (13%) and Cherwell (13%).
+      - **Bicycle theft** in Oxford 6% (at least 3 times higher than anywhere else).
+      - **Vehicle crime** in Slough and Windsor and Maidenhead (8 to 9%).
+
+   - The busiest areas record the most crime, likely due to them being bigger areas with a higher population, so totals alone are not a truly fair comparison.
+   - Looking at the mix shows each area has its own pattern, which could help the police target specific crime types in specific areas.
+
+<br>
+
 3. Has the number of crimes risen or fallen between October 2023 and September 2026?
 
    xxxxxxxxx
+   
+<br>
+
 4. Is there a seasonal pattern, and if so is the difference between summer and winter statistically different?
 
    xxxxxxxxx
+   
+<br>
+
 5. Can monthly crime counts be predicted for an area and crime type, if so which model does it best?
 
    xxxxxxxxx
