@@ -126,8 +126,10 @@ thames-valley-crime-insights/
 ## Answers to our Key Analytical Questions
 
 1. Which reported crime types are the most common across the Thames Valley?
+   - **Violence and sexual offences** is by far the most common crime type, with 217,946 crimes recorded (37.59% of all crime). This is more than three times higher than the next highest, **Anti-social behaviour** (60,597, 10.45%).
+   - The top 3 crime types (**Violence and sexual offences**, **Anti-social behaviour** and **Shoplifting**) make up 57.85% of all recorded crime over 36 months, which is more than half.
+   - The least common crime types are **Possession of weapons** (4,053, 0.7%), **Robbery** (5,886, 1.02%) and **Theft from the person** (6,669, 1.15%). Together they make up only 2.87% of all crime.
 
-   xxxxxxxxx
 2. How does crime differ between the 13 areas?
 
    xxxxxxxxx
