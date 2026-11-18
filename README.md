@@ -191,6 +191,13 @@ XXX
 - **Note:** ppscore is only used locally for analysis and is removed from `requirements.txt` before deploying to Heroku.
 - **AI:** Claude was used to troubleshoot and help resolve this (see AI use section).
 
+**Charts not showing in the notebook**
+
+- **Problem:** The histogram in `02_EDA.ipynb` did not display. Instead the output showed `<Figure 1000x600 with 1 Axes>`.
+- **Cause:** Jupyter in VS Code was not set to show Matplotlib charts inside the notebook.
+- **Fix:** Added `%matplotlib inline`to the setup cell, then restarted the kernel and ran all cells.
+- **AI:** Claude was used to troubleshoot and help resolve this (see AI use section).
+
 ---
 
 ## How to Run This Project
