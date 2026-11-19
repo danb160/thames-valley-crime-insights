@@ -134,7 +134,7 @@ thames-valley-crime-insights/
 
 2. How does crime differ between the 13 areas?
 
-   - Crime does differ in the 13 areas in two main ways in **how much** and **which types** make up the biggest share.
+   - Crime **does differ** in the 13 areas in two main ways in **how much** and **which types** make up the biggest share.
   
    - **Buckinghamshire** (18.61%) and **Milton Keynes** (15.57%) record the most crime. **West Oxfordshire** (3.04%) and **South Oxfordshire** (3.85%) record the least (percentages are each area's share of all Thames Valley crime).
    - **Violence and sexual offences** is the largest everywhere (ranging 32% to 44%).
@@ -150,7 +150,10 @@ thames-valley-crime-insights/
 
 3. Has the number of crimes risen or fallen between October 2023 and September 2026?
 
-   xxxxxxxxx
+   - Crime **has fallen very slightly** by 0.307% (595 fewer crimes) from Year 1 to Year 3 (October 2023 to September 2026).
+   - It dipped slightly in Year 2 (down by 0.615%), then rose again in Year 3 (up by 0.310%).
+   - The change is so small that crime has effectively stayed **level**
+   - The monthly line chart shows crime peaks every summer (highest in July) and drops every winter. This suggests changes are mainly seasonal rather than a long-term trend (which is explored in Question 4).
    
 <br>
 
