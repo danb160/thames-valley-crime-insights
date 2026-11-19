@@ -15,18 +15,18 @@ This project analyses 36 months of street-level crime data from October 2023 to 
 
 ***The goal:*** Turn a large set of monthly crime records into clear, usable findings, and test whether future monthly crime levels can be predicted so that planning can be based on evidence rather than guesswork.
 
-***The end user:*** Would be police planners or a decision-maker, none of which being a data specialist. That is why the findings will need to be presented in a simple interactive dashboard, where they can filter by area, crime type, and time period to see what the data shows for themselves.
+***The end user:*** Would be police planners or a decision-maker, none of which being a data specialist. That is why the findings will need to be presented in a simple interactive dashboard, where they can filter by area and crime type to see what the data shows for themselves.
 
 ---
 
 ## Problem Statement
 
 A key decision maker for the Thames Valley Police is trying to decide where and when to focus resources, with a view of reducing crime in the region.
-They are finding it hard to see crime patterns across 13 areas that the force operats in, over the 36 months of basic crime data that they have, and 592,926 crimes having been input in the raw crime data in that time - which makes planning feel like guesswork. ***Can we Help?***
+They are finding it hard to see crime patterns across 13 areas that the force operate in, over the 36 months of basic crime data that they have, and 592,926 crimes having been input in the raw crime data in that time - which makes planning feel like guesswork. ***Can we Help?***
 
 ---
 
-## Core Dataset
+## Dataset
 
 **Data Source:** [Thames Valley Police street-level crime data](https://data.police.uk/data/)
 
@@ -73,31 +73,42 @@ This makes using the datasets both faster and more efficient.
 
 **Jupyter Notebooks** - As the working environment
 
-**Git/GitHub** - For version control
+**[Git](https://git-scm.com/) / [GitHub](https://github.com/)** - For version control
 
-**Pandas and NumPy** - For cleaning, filtering, and organising data
+**[Pandas](https://pandas.pydata.org/) and [NumPy](https://numpy.org/)** - For cleaning, filtering, and organising data
 
-**Matplotlib, Seaborn & Plotly** - For visualisations ##### CHECK WHICH I HAVE USED #####
+**[Matplotlib](https://matplotlib.org/) and [Seaborn](https://seaborn.pydata.org/)** - For visualisations
 
-**SciPy** - For statistical testing of the seasonal pattern (Question 4)
+**[SciPy](https://scipy.org/)** - For statistical testing of the seasonal pattern (Question 4)
 
-**Streamlit** - To create the interactive dashboard
+**[Streamlit](https://streamlit.io/)** - To create the interactive dashboard
 
-**Heroku** - For hosting the dashboard
+**[Heroku](https://www.heroku.com/)** - For hosting the dashboard
 
-**Scikit-learn** - For building and evaluating ML models for predicting crime counts (Question 5)
+**[Scikit-learn](https://scikit-learn.org/)** - For building and evaluating ML models for predicting crime counts (Question 5)
 
 ---
 
 ## AI Use
 
-While these AI tools were used to support development and brainstorming, the core design, structure, and development of the project are my own. Where AI suggestions or outputs were given, I personally reviewed, adapted and implemented the code to verify its accuracy and to ensure that it aligned with the overall goals of the project.
+AI tools were used to support this project. The project idea, dataset choice, key questions, and analytical decisions are my own.
+AI tools helped to plan the notebook structure and suggest code, which I checked, typed, ran and adapted myself where needed. AI helped draft some explanations and findings based on my outputs. Where this happened I checked and edited the wording myself.
+Outputs were checked to verify accuracy and to ensure that they aligned with the overall goals of the project. For example, results were checked against earlier notebooks and my lesson notes, and Copilot inline suggestions that changed columns or variables were corrected.
 
 **AI - Google Gemini** - Initial discussion to assess the viability of the project and dataset
 
-**AI - Claude** - Code assistance, data handling, assistance with explanations, project management, problem solving, and proofreading
+**AI - Claude** - Planning the notebook structure, code suggestions, explanations of concepts and methods, project management, problem solving, assistance in drafting explanations and proofreading.
 
 **AI - GitHub Copilot** - Assistance with inline code suggestions
+
+### Example prompts and how AI supported the project
+
+| Prompt (summarised) | How it helped | My role |
+|---|---|---|
+| "ppscore fails to install with 'No module named pkg_resources'. How do I fix it?" | Suggested installing an older version of setuptools first. | Applied the fix, confirmed it worked, and recorded it in the Bugs section. |
+| "Help me plan Question 3 (has crime risen or fallen?) in small steps." | Suggested a monthly line chart, a comparison of three October–September years, and a crime type comparison. | Decided the yearly comparison and line chart answered the question, and dropped the crime type comparison to fit the deadline (added to Further Development instead). |
+| "Check my findings match my outputs." | Pointed out typos and wording that didn't match the figures. | Questioned figures that hadn't been printed (e.g. "595 fewer crimes"), added code so every number came from an output, and chose 3 decimal places to show two similar figures were actually different. |
+| "Review my AI use section." | Suggested clearer wording. | Edited the wording to reflect how the tools were actually used. |
 
 ---
 
@@ -106,15 +117,17 @@ While these AI tools were used to support development and brainstorming, the cor
 ```
 thames-valley-crime-insights/
 +---data
-|   +---clean
-|   \---raw             # Containing 36 monthly raw .csv files
-|     
-\---jupyter_notebooks
-|  01_ETL.ipynb         # Loading, cleaning and combining the raw data
-+---app.py
-+---Procfile
-+---requirements.txt
-\---README.md
+|   +---clean                          # 3 cleaned datasets (see Dataset section)
+|   \---raw                            # Containing 36 monthly raw .csv files
++---jupyter_notebooks
+|   +---01_ETL.ipynb                   # Loading, cleaning and combining the raw data
+|   +---02_EDA.ipynb                   # Exploratory data analysis (Questions 1-3 and partly 4)
+|   +---03_statistical_testing.ipynb   # Summer vs winter statistical test (Question 4)
+|   \---04_modelling.ipynb             # Predicting monthly crime counts (Question 5)
++---app.py                             # Streamlit dashboard
++---Procfile                           # Tells Heroku how to start the dashboard
++---requirements.txt                   # Python packages needed to run this project
+\---README.md                          # Project documentation
 ```
 
 ---
@@ -203,6 +216,7 @@ XXX
 ## Further Development
 
 - Add ONS data to investigate crimes per 1,000 people instead of as raw counts. This would give a fairer comparison as larger areas such as Buckinghamshire naturally have more reported crime.
+- Compare the change in crime type between Year 1 and 3. This would show if some individual crime types rose while others fell, as overall crime stayed level.
 
 ---
 
@@ -240,3 +254,10 @@ pip install "setuptools<81" wheel
 pip install --no-build-isolation ppscore==1.1.0
 pip install -r requirements.txt
 ```
+
+---
+
+## Credits
+
+- Code Institute lesson materials were used as a learning resource for the methods applied in this project.
+- The general structure of the notebooks and this README is based on my own Reading food hygiene project, which I have adapted and expanded on to suit this project.
