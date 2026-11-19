@@ -159,8 +159,11 @@ thames-valley-crime-insights/
 
 4. Is there a seasonal pattern, and if so is the difference between summer and winter statistically different?
 
-   xxxxxxxxx
-   
+   - Yes, there is a clear **seasonal pattern**. Crime rises from winter through spring, to a peak in summer, then falls through autumn to its lowest point in winter.
+   - Average crimes per month: Winter 14,458, Spring 16,335, Summer 17,560, Autumn 16,065.
+   - Summer averages 3,102 more crimes per month than winter (21.46% higher).
+   - * RESULT IN HERE >> difference between summer and winter is **statistically significant** in `03_statistical_testing.ipynb`.*
+
 <br>
 
 5. Can monthly crime counts be predicted for an area and crime type, if so which model does it best?
