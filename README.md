@@ -60,7 +60,7 @@ This makes using the datasets both faster and more efficient.
 1. Which reported crime types are the most common across the Thames Valley?
 2. How does crime differ between the 13 areas?
 3. Has the number of crimes risen or fallen between October 2023 and September 2026?
-4. Is there a seasonal pattern, and if so is the difference between summer and winter statistically different?
+4. Is there a seasonal pattern, and if so is the difference between summer and winter statistically significant?
 5. Can monthly crime counts be predicted for an area and crime type, if so which model does it best?
 
 ---
@@ -97,7 +97,7 @@ Outputs were checked to verify accuracy and to ensure that they aligned with the
 
 **AI - Google Gemini** - Initial discussion to assess the viability of the project and dataset
 
-**AI - Claude** - Planning the notebook structure, code suggestions, explanations of concepts and methods, project management, problem solving, assistance in drafting explanations and proofreading.
+**AI - Claude** - Planning the notebook structure, code suggestions, explanations of concepts and methods, project management, problem solving (and bug reporting), assistance in drafting explanations and proofreading.
 
 **AI - GitHub Copilot** - Assistance with inline code suggestions
 
@@ -239,6 +239,14 @@ XXX
 - **Problem:** The histogram in `02_EDA.ipynb` did not display. Instead the output showed `<Figure 1000x600 with 1 Axes>`.
 - **Cause:** Jupyter in VS Code was not set to show Matplotlib charts inside the notebook.
 - **Fix:** Added `%matplotlib inline`to the setup cell, then restarted the kernel and ran all cells.
+- **AI:** Claude was used to troubleshoot and help resolve this (see AI use section).
+
+**pingouin install error**
+
+- **Problem:** Installing pingouin upgraded numpy, pandas, matplotlib and scikit-learn past the versions in `requirements.txt`, then failed with `OSError: [WinError 5] Access is denied`.
+- **Cause:** The latest pingouin (0.7.0) needs newer versions of these packages. The install failed part-way because the notebook kernel and OneDrive were using the files.
+- **Fix:** Closed VS Code, deleted the leftover `~` folders in `.venv\Lib\site-packages`, then reinstalled the pinned versions from the terminal and installed an older pingouin with `pip install pingouin==0.5.4 "xarray<2025"`. Checked with `pip check`.
+- **Note:** pingouin is only used locally for statistical testing and is removed from `requirements.txt` before deploying to Heroku.
 - **AI:** Claude was used to troubleshoot and help resolve this (see AI use section).
 
 ---
