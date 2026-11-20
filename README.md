@@ -285,7 +285,9 @@ pip install -r requirements.txt
 
 ## Credits and Other Reference Sources
 
-- [13 local authorities that make up the Thames Valley Police area](https://www.westberks.gov.uk/article/42710/Police-Area-Returning-Officer-PARO-2024) - West Berkshire Council - Used to establish the areas that make up Thames Valley Police (`02_ETL.ipynb`)
-- Methodology Hub (2026). *Statistical Tests: Types, Uses, and How to Choose*. Retrieved 19 November 2026, from [https://methodologyhub.com/methods/statistics/statistical-tests/](https://methodologyhub.com/methods/statistics/statistical-tests/) - used to research which statistical test to use (`03_statistical_testing.ipynb`).
+- [13 local authorities that make up the Thames Valley Police area](https://www.westberks.gov.uk/article/42710/Police-Area-Returning-Officer-PARO-2024) - West Berkshire Council - Used to establish the areas that make up Thames Valley Police (`01_ETL.ipynb`)
+- Methodology Hub (2026). *Statistical Tests: Types, Uses, and How to Choose*. Retrieved 19 November 2026, from [https://methodologyhub.com/methods/statistics/statistical-tests/](https://methodologyhub.com/methods/statistics/statistical-tests/) - Used to research which statistical test to use (`03_statistical_testing.ipynb`).
 - Code Institute lesson materials were used as a learning resource for the methods applied in this project.
+- The `MultiPage` class in `app_pages/multi_page.py` was adapted from the Code Institute Streamlit multi-page lesson.
+- The Heroku deployment files (`Procfile` and `setup.sh`) follow the Code Institute "Deploy dashboard" guide.
 - The general structure of the notebooks and this README is based on my own Reading food hygiene project, which I have adapted and expanded on to suit this project.
