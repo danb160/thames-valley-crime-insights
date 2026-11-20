@@ -1,3 +1,4 @@
 jupyter_notebooks/*
 README.md
 data/raw/
+data/clean/crime_clean.csv
