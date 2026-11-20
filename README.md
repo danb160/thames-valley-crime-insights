@@ -4,6 +4,8 @@
 
 Thames Valley Police crime data analysis, October 2023 to September 2026.
 
+[Dashboard Link](https://thames-valley-crime-insights-cb70f6424e20.herokuapp.com/)
+
 ---
 
 ## Context
