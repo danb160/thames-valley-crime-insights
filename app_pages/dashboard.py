@@ -52,4 +52,34 @@ def dashboard_body():
     col1, col2 = st.columns(2)
     col1.metric("Total crimes", f"{total:,}")
     col2.metric("Average crimes per month", f"{monthly_average:,.0f}")
-    
+
+    # Chart 1 - Total crimes by crime type (area filtered)
+    st.write("---")
+    st.write(f"#### Total crimes by crime type for {area}")
+
+    # Option to hide the Violence and sexual offences crime type
+    hide_vso = st.checkbox("Hide Violence and sexual offences",
+    help="This crime type is much larger than the others. Hiding it makes the "
+    "smaller crime types easier to compare.")
+    chart_data = area_data.copy()
+    if hide_vso:
+        chart_data = chart_data[chart_data["Crime type"] != "Violence and sexual offences"]
+
+    # Total crimes by type, smallest to largest
+    crime_types = chart_data.groupby("Crime type")["Count"].sum()
+    crime_types = crime_types.sort_values(ascending=True).reset_index()
+
+    # Draw the chart
+    fig = px.bar(crime_types, x="Count", y="Crime type", orientation="h",
+                 color_discrete_sequence=["steelblue"],
+                 text_auto=",",
+                 labels={"Count": "Number of crimes", "Crime type": ""})
+
+    # Make the chart more readable
+    fig.update_traces(textposition="outside")
+    fig.update_layout(font={"size": 14, "color": "#333333"},
+                      height=500, bargap=0.15)
+    fig.update_yaxes(tickfont={"color": "#333333"})
+    fig.update_xaxes(tickfont={"color": "#333333"})
+
+    st.plotly_chart(fig, use_container_width=True)
