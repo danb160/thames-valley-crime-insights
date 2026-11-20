@@ -76,9 +76,10 @@ def dashboard_body():
                  labels={"Count": "Number of crimes", "Crime type": ""})
 
     # Make the chart more readable
-    fig.update_traces(textposition="outside")
+    fig.update_traces(textposition="outside", cliponaxis=False)
     fig.update_layout(font={"size": 14, "color": "#333333"},
-                      height=500, bargap=0.15)
+                      height=500, bargap=0.15,
+                      margin={"r": 70})
     fig.update_yaxes(tickfont={"color": "#333333"})
     fig.update_xaxes(tickfont={"color": "#333333"})
 
