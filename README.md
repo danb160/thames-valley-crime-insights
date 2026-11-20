@@ -59,11 +59,26 @@ This makes using the datasets both faster and more efficient.
 4. Is there a seasonal pattern, and if so is the difference between summer and winter statistically significant?
 5. Can monthly crime counts be predicted for an area and crime type, if so which model does it best?
 
+(See below for result)
+
+---
+
+## Hypothesis (Question 4)
+
+**Practical hypothesis:** Crime in the Thames Valley is higher in summer than in winter. If this is true, police resources and awareness campaigns could be planned around the summer peak to mitigate against crime being committed.
+
+**Statistical hypotheses:**
+
+- **Null hypothesis (H0):** there is no difference in average monthly crimes between summer and winter.
+- **Alternative hypothesis (H1):** average monthly crimes differ between summer and winter.
+
+(See below for result)
+
 ---
 
 ## Tools and Technology Used
 
-**Python** - As the programming language (Version 3.12.8)
+**[Python](https://www.python.org/)** - As the programming language (Version 3.12.8)
 
 **VS Code** - As the Integrated Development Environment (IDE)
 
@@ -74,6 +89,8 @@ This makes using the datasets both faster and more efficient.
 **[Pandas](https://pandas.pydata.org/) and [NumPy](https://numpy.org/)** - For cleaning, filtering, and organising data
 
 **[Matplotlib](https://matplotlib.org/) and [Seaborn](https://seaborn.pydata.org/)** - For visualisations
+
+**[Pingouin](https://pingouin-stats.org/)** - For statistical testing (Version 0.5.4)
 
 **[SciPy](https://scipy.org/)** - For statistical testing of the seasonal pattern (Question 4)
 
@@ -171,23 +188,17 @@ thames-valley-crime-insights/
    - Yes, there is a clear **seasonal pattern**. Crime rises from winter through spring, to a peak in summer, then falls through autumn to its lowest point in winter.
    - Average crimes per month: Winter 14,458, Spring 16,335, Summer 17,560, Autumn 16,065.
    - Summer averages 3,102 more crimes per month than winter (21.46% higher).
-   - * RESULT IN HERE >> difference between summer and winter is **statistically significant** in `03_statistical_testing.ipynb`.*
+
+      Hypothesis Result:
+   - As the t-test p-value is less than 0.01 (3.6e-09 = 0.0000000036) which is **less than 0.05** we reject the null hypothesis. The difference between summer and winter crime values ***is*** **statistically significant**, and is unlikely to be down to chance alone (result from `03_statistical_testing.ipynb`).
+
+   - There is a clear **seasonal pattern**. Crime rises from winter through spring, to a peak in summer, then falls through autumn to its lowest point in winter. Summer averages 21.46% more crimes per month than winter (result from `02_EDA.ipynb`)
 
 <br>
 
 5. Can monthly crime counts be predicted for an area and crime type, if so which model does it best?
 
    xxxxxxxxx
-
----
-
-## Hypothesis (Question 4)
-
-XXX
-
----
-
-## Conclusion
 
 ---
 
@@ -205,7 +216,11 @@ XXX
 - **Approximate locations** - Crimes are mapped to a nearby point for privacy.
 - **Recorded crime only** - Unreported crime is not included, so the real level of some crimes may be higher.
 - **Monthly data only** - No day or time, so seasons are based on the month.
-- **Three years only** - Each season only appears three times, which limits the trend analysis.
+- **Three years only** - Each season only appears three times, which limits the trend analysis 
+
+**From the Statistical Testing**
+- **Small sample** - Each season only has 9 months of data, which is only a small sample for the t-test.
+- **Cause not tested** - The tests show the difference between summer and winter is real, but do not tell us **why** there it happens.
 
 ---
 
@@ -213,10 +228,13 @@ XXX
 
 - Add ONS data to investigate crimes per 1,000 people instead of as raw counts. This would give a fairer comparison as larger areas such as Buckinghamshire naturally have more reported crime.
 - Compare the change in crime type between Year 1 and 3. This would show if some individual crime types rose while others fell, as overall crime stayed level.
+- Further statistical testing to compare all four seasons at once by using the **ANOVA** testing method.
 
 ---
 
 ## Data Compliance and Legal Use
+
+The datasets used in this project are puplicly available at [data.police.uk](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). The data has been annoymised to protect privacy. The data is published under [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). This licence allows us to copy, publish, distribute, adapt and commercially exploit the data with attribution.
 
 ---
 
