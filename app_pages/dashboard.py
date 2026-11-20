@@ -78,7 +78,7 @@ def dashboard_body():
     crime_types = chart_data.groupby("Crime type")["Count"].sum()
     crime_types = crime_types.sort_values(ascending=True).reset_index()
 
-    # Draw the chart
+    # Draw chart 1
     fig = px.bar(crime_types, x="Count", y="Crime type", orientation="h",
                  color_discrete_sequence=["steelblue"],
                  text_auto=",",
@@ -93,6 +93,7 @@ def dashboard_body():
     fig.update_xaxes(tickfont={"color": "#333333"}, 
                      title_font={"color": "#333333"}, tickformat=",")
 
+    # Display chart 1
     st.plotly_chart(fig, use_container_width=True)
 
     # Chart 2 - Total crimes per month (area and crime filtered)
@@ -103,7 +104,7 @@ def dashboard_body():
     # Total crimes per month
     monthly = filtered.groupby("Month")["Count"].sum().reset_index()
 
-    # Draw the chart
+    # Draw chart 2
     fig = px.line(monthly, x="Month", y="Count", markers=True,
                   color_discrete_sequence=["steelblue"],
                   labels={"Count": "Number of crimes", "Month": ""})
@@ -115,5 +116,35 @@ def dashboard_body():
                      title_font={"color": "#333333"}, tickformat=",")
     fig.update_xaxes(tickfont={"color": "#333333"}, 
                      title_font={"color": "#333333"})
+    
+    # Display chart 2
+    st.plotly_chart(fig, use_container_width=True)
 
+    # Chart 3 - Average crimes by month by season (area and crime filtered)
+    st.write("---")
+    st.write(f"#### Average crimes per month by season for {place}")
+    st.write(f"{crime_label.capitalize()} reported from October 2023 to September 2026")
+
+    # Average crimes per month in each season, in season order (as in 02_EDA)
+    season_order = ["Winter", "Spring", "Summer", "Autumn"]
+    season_monthly = filtered.groupby(["Month", "Season"])["Count"].sum().reset_index()
+
+    season_average = (season_monthly.groupby("Season")["Count"].mean()
+                      .round(0).reindex(season_order).reset_index())
+
+    # Draw chart 3
+    fig = px.bar(season_average, x="Season", y="Count",
+                  color_discrete_sequence=["steelblue"], text_auto=",",
+                  labels={"Count": "Average crimes per month", "Season": ""})
+
+    # Make the chart more readable
+    fig.update_traces(textposition="outside", cliponaxis=False)
+    fig.update_layout(font={"size": 14, "color": "#333333"},
+                      height=500, bargap=0.3, margin={"r": 30, "t": 40})
+    fig.update_yaxes(tickfont={"color": "#333333"}, 
+                     title_font={"color": "#333333"}, tickformat=",")
+    fig.update_xaxes(tickfont={"color": "#333333"}, 
+                     title_font={"color": "#333333"})
+
+    # Display chart 3
     st.plotly_chart(fig, use_container_width=True)
