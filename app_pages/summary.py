@@ -22,7 +22,7 @@ def summary_body():
 - **Licence:** [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/),
   which allows the data to be copied, published, distributed, adapted and used commercially with attribution.
 - **Privacy:** The data has been anonymised to protect privacy. 
-- **Size:** The data consists of 36 months (3 years), 13 areas, 14 crime types and 579,772 reported crimes.
+- **Size:** The data consists of 36 months (3 years), 13 areas, 14 crime types and 579,772 reported crimes after cleaning.
 
 #### Key questions
 1. Which reported crime types are the most common?
