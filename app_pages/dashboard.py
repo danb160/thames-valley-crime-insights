@@ -80,6 +80,8 @@ def dashboard_body():
 
     # Draw chart 1
     fig = px.bar(crime_types, x="Count", y="Crime type", orientation="h",
+                 hover_name="Crime type",
+                 hover_data={"Crime type": False},
                  color_discrete_sequence=["steelblue"],
                  text_auto=",",
                  labels={"Count": "Number of crimes", "Crime type": ""})
@@ -114,6 +116,8 @@ def dashboard_body():
                   labels={"Count": "Number of crimes", "Month": ""})
 
     # Make the chart more readable
+    fig.update_traces(hovertemplate="<b>%{x|%B %Y}</b><br>"
+                                    "Number of crimes=%{y}<extra></extra>")
     fig.update_layout(font={"size": 14, "color": "#333333"},
                       height=500, margin={"r": 30, "t": 30},
                       hoverlabel={"bgcolor": "#E6F1FB",
@@ -142,8 +146,10 @@ def dashboard_body():
 
     # Draw chart 3
     fig = px.bar(season_average, x="Season", y="Count",
-                  color_discrete_sequence=["steelblue"], text_auto=",",
-                  labels={"Count": "Average crimes per month", "Season": ""})
+                 hover_name="Season",
+                 hover_data={"Season": False},
+                 color_discrete_sequence=["steelblue"], text_auto=",",
+                 labels={"Count": "Average crimes per month", "Season": ""})
 
     # Make the chart more readable
     fig.update_traces(textposition="outside", cliponaxis=False)
