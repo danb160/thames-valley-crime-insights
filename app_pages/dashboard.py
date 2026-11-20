@@ -29,6 +29,10 @@ def dashboard_body():
     area = st.sidebar.selectbox("Select area", area_options)
     crime = st.sidebar.selectbox("Select crime type", crime_options)
 
+    # Name to show in chart titles (to make charts clearer)
+    place = "the Thames Valley" if area == "All areas" else area
+    
+
     # Filtered by area
     area_data = summary.copy()
     if area != "All areas":
@@ -55,7 +59,8 @@ def dashboard_body():
 
     # Chart 1 - Total crimes by crime type (area filtered)
     st.write("---")
-    st.write(f"#### Total crimes by crime type for {area}")
+    st.write(f"#### Crimes by type for {place}")
+    st.write("Reported from October 2023 to September 2026")
 
     # Option to hide the Violence and sexual offences crime type
     hide_vso = st.checkbox("Hide Violence and sexual offences",
@@ -79,7 +84,7 @@ def dashboard_body():
     fig.update_traces(textposition="outside", cliponaxis=False)
     fig.update_layout(font={"size": 14, "color": "#333333"},
                       height=500, bargap=0.15,
-                      margin={"r": 70})
+                      margin={"r": 70, "t": 30})
     fig.update_yaxes(tickfont={"color": "#333333"})
     fig.update_xaxes(tickfont={"color": "#333333"})
 
