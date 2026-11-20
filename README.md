@@ -3,9 +3,6 @@
 ## README
 
 Thames Valley Police crime data analysis, October 2023 to September 2026.
-
-[Dashboard Link](https://thames-valley-crime-insights-cb70f6424e20.herokuapp.com/)
-
 ---
 
 ## Context
@@ -15,9 +12,11 @@ To guide them, they need to know which crimes are the most common, where they ha
 
 This project analyses 36 months of street-level crime data from October 2023 to September 2026, to give the police a clearer picture of crime across the Thames Valley. The aim is to help them decide where to focus patrols, and when to run awareness campaigns, for example around the months when particular crimes peak.
 
-***The goal:*** Turn a large set of monthly crime records into clear, usable findings, and test whether future monthly crime levels can be predicted so that planning can be based on evidence rather than guesswork.
+***The goals:*** 
+- Turn a large set of monthly crime records into clear, usable findings, and display them in an interactive dashboard.
+- To test whether future monthly crime levels can be predicted so that planning can be based on evidence rather than guesswork. The results of
 
-***The end user:*** Would be police planners or a decision-maker, none of which being a data specialist. That is why the findings will need to be presented in a simple interactive dashboard, where they can filter by area and crime type to see what the data shows for themselves.
+***The end user:*** Would be police planners or key decision-makers, none of which being a data specialist. That is why the findings will need to be presented in a simple interactive dashboard, where they can filter by area and crime type to see what the data shows for themselves.
 
 ---
 
@@ -201,6 +200,42 @@ thames-valley-crime-insights/
 5. Can monthly crime counts be predicted for an area and crime type, if so which model does it best?
 
    xxxxxxxxx
+
+---
+
+## Dashboard
+
+[**Click here to be taken to the dashboard**](https://thames-valley-crime-insights-cb70f6424e20.herokuapp.com/)
+
+A Streamlit dashboard presents the findings of the project for non-technical users, such as police planners or key decision-makers. Users can filter the data by area and crime type to explore the patterns that the data has uncovered for themselves.
+
+**The dashboard is made up of two pages:**
+
+- **Project Summary** - Explains what the project is about, the data used, key questions, and how to use the dashboard.
+- **Crime Dashboard** - Sidebar filters for each area and crime type, headline numbers and four interactive charts.
+
+Notes for reading the charts: 
+- All charts have hover boxes showing exact numbers, plus the toolbar allowing the user to:
+   - Download the plot as .png
+   - Zoom in / out
+   - Pan
+   - Auto-scale
+   - View the image full-screen
+
+- Charts 1 and 4 each ignore one filter on purpose. Picking one crime type would leave a single bar on Chart 1, and picking one area would leave a single bubble on Chart 4.
+
+**See below how the filters work on the dashboard**
+
+| Chart | Area filter | Crime filter | Extra |
+|---|---|---|---|
+| **Headline numbers** | Yes | Yes | |
+| **Chart 1** - Crimes by type | Yes | No - always shows all crime types | Tick box to hide Violence and sexual offences |
+| **Chart 2** - Crimes per month | Yes | Yes | |
+| **Chart 3** - Average crimes per month by season | Yes | Yes | |
+| **Chart 4** - Bubble map of crimes by area | No - always shows all 13 areas | Yes | |
+---
+
+
 
 ---
 
