@@ -88,7 +88,11 @@ def dashboard_body():
     fig.update_traces(textposition="outside", cliponaxis=False)
     fig.update_layout(font={"size": 14, "color": "#333333"},
                       height=500, bargap=0.15,
-                      margin={"r": 70, "t": 30})
+                      margin={"r": 70, "t": 30},
+                      hoverlabel={"bgcolor": "#E6F1FB",
+                      "font": {"color": "#333333",
+                      "size": 14}})
+    
     fig.update_yaxes(tickfont={"color": "#333333"})
     fig.update_xaxes(tickfont={"color": "#333333"}, 
                      title_font={"color": "#333333"}, tickformat=",")
@@ -111,7 +115,11 @@ def dashboard_body():
 
     # Make the chart more readable
     fig.update_layout(font={"size": 14, "color": "#333333"},
-                      height=500, margin={"r": 30, "t": 30})
+                      height=500, margin={"r": 30, "t": 30},
+                      hoverlabel={"bgcolor": "#E6F1FB",
+                                  "font": {"color": "#333333",
+                                  "size": 14}})
+    
     fig.update_yaxes(tickfont={"color": "#333333"}, 
                      title_font={"color": "#333333"}, tickformat=",")
     fig.update_xaxes(tickfont={"color": "#333333"}, 
@@ -120,7 +128,7 @@ def dashboard_body():
     # Display chart 2
     st.plotly_chart(fig, use_container_width=True)
 
-    # Chart 3 - Average crimes by month by season (area and crime filtered)
+    # Chart 3 - Average crimes by month by season (area and crime filtered)(Q4)
     st.write("---")
     st.write(f"#### Average crimes per month by season for {place}")
     st.write(f"{crime_label.capitalize()} reported from October 2023 to September 2026")
@@ -140,11 +148,45 @@ def dashboard_body():
     # Make the chart more readable
     fig.update_traces(textposition="outside", cliponaxis=False)
     fig.update_layout(font={"size": 14, "color": "#333333"},
-                      height=500, bargap=0.3, margin={"r": 30, "t": 40})
+                      height=500, bargap=0.3, margin={"r": 30, "t": 40},
+                      hoverlabel={"bgcolor": "#E6F1FB",
+                                  "font": {"color": "#333333",
+                                  "size": 14}})
+    
     fig.update_yaxes(tickfont={"color": "#333333"}, 
                      title_font={"color": "#333333"}, tickformat=",")
     fig.update_xaxes(tickfont={"color": "#333333"}, 
                      title_font={"color": "#333333"})
 
     # Display chart 3
+    st.plotly_chart(fig, use_container_width=True)
+
+    # Chart 4 - Crimes by area (bubble map)
+    st.write("---")
+    st.write(f"#### Crimes by area for {crime_label}")
+    st.write("Reported from October 2023 to September 2026." )
+    st.write("Bigger bubble = more crimes" )
+
+    # Total crimes per area, joined to each area'scentral location
+    areas = crime_data.groupby("Area")["Count"].sum().reset_index()
+    area_map = areas.merge(locations, on="Area")
+
+    # Hover information for each bubble
+    hover = {"Count": ":, ", "Latitude": False, "Longitude": False}
+
+    fig = px.scatter_mapbox(area_map, lat="Latitude", lon="Longitude", 
+                            size="Count",
+                            hover_name="Area", hover_data=hover,
+                            size_max=54, zoom=9,
+                            color_discrete_sequence=["steelblue"],
+                            mapbox_style="open-street-map")
+
+    # Make the chart more readable
+    fig.update_layout(font={"size": 14, "color": "#333333"},
+                      height=700, margin={"r": 0, "t": 0, "l": 0, "b": 0},
+                      hoverlabel={"bgcolor": "#E6F1FB",
+                                  "font": {"color": "#333333",
+                                  "size": 14}})
+    
+    # Display chart 4
     st.plotly_chart(fig, use_container_width=True)
