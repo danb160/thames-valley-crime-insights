@@ -25,6 +25,7 @@ def dashboard_body():
     area_options = ["All areas"] + sorted(summary["Area"].unique())
     crime_options = ["All crime types"] + sorted(summary["Crime type"].unique())
 
+    # Labels above the filters in the sidebar
     st.sidebar.write("---")
     st.sidebar.write("### Filters")
 
@@ -32,8 +33,9 @@ def dashboard_body():
     area = st.sidebar.selectbox("Select area", area_options)
     crime = st.sidebar.selectbox("Select crime type", crime_options)
 
-    # Name to show in chart titles (to make charts clearer)
+    # Names to show in chart titles (to make charts clearer)
     place = "the Thames Valley" if area == "All areas" else area
+    crime_label = "all crime types" if crime == "All crime types" else crime
     
     # Filtered by area
     area_data = summary.copy()
@@ -50,11 +52,11 @@ def dashboard_body():
     if crime != "All crime types":
         filtered = filtered[filtered["Crime type"] == crime]
 
-    # Headline number for the selection
+    # Headline numbers for the selection
     total = filtered["Count"].sum()
     monthly_average = total / filtered["Month"].nunique()
 
-    # Show the number together
+    # Show the numbers together
     col1, col2 = st.columns(2)
     col1.metric("Total crimes", f"{total:,}")
     col2.metric("Average crimes per month", f"{monthly_average:,.0f}")
@@ -62,7 +64,7 @@ def dashboard_body():
     # Chart 1 - Total crimes by crime type (area filtered)
     st.write("---")
     st.write(f"#### Crimes by type for {place}")
-    st.write("Reported from October 2023 to September 2026")
+    st.write("All crime types reported from October 2023 to September 2026")
 
     # Option to hide the Violence and sexual offences crime type
     hide_vso = st.checkbox("Hide Violence and sexual offences",
@@ -88,6 +90,30 @@ def dashboard_body():
                       height=500, bargap=0.15,
                       margin={"r": 70, "t": 30})
     fig.update_yaxes(tickfont={"color": "#333333"})
-    fig.update_xaxes(tickfont={"color": "#333333"})
+    fig.update_xaxes(tickfont={"color": "#333333"}, 
+                     title_font={"color": "#333333"}, tickformat=",")
+
+    st.plotly_chart(fig, use_container_width=True)
+
+    # Chart 2 - Total crimes per month (area and crime filtered)
+    st.write("---")
+    st.write(f"#### Crimes per month for {place}")
+    st.write(f"{crime_label.capitalize()} reported from October 2023 to September 2026")
+
+    # Total crimes per month
+    monthly = filtered.groupby("Month")["Count"].sum().reset_index()
+
+    # Draw the chart
+    fig = px.line(monthly, x="Month", y="Count", markers=True,
+                  color_discrete_sequence=["steelblue"],
+                  labels={"Count": "Number of crimes", "Month": ""})
+
+    # Make the chart more readable
+    fig.update_layout(font={"size": 14, "color": "#333333"},
+                      height=500, margin={"r": 30, "t": 30})
+    fig.update_yaxes(tickfont={"color": "#333333"}, 
+                     title_font={"color": "#333333"}, tickformat=",")
+    fig.update_xaxes(tickfont={"color": "#333333"}, 
+                     title_font={"color": "#333333"})
 
     st.plotly_chart(fig, use_container_width=True)
