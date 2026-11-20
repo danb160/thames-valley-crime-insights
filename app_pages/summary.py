@@ -38,5 +38,5 @@ def summary_body():
 """)
 
     # Non-endorsement statement
-    st.caption("This is an independent data analysis project for educational purposes. It is not "
-               "affiliated with, endorsed by, or produced by Thames Valley Police or data.police.uk.")
+    st.markdown("**This is an independent data analysis project for educational purposes. It is not "
+                "affiliated with, endorsed by, or produced by Thames Valley Police or data.police.uk.**")
