@@ -16,12 +16,20 @@ class MultiPage:
         self.pages.append({"title": title, "function": func})
 
     def run(self):
+        # reduce space at the top of the page
+        st.markdown("<style>div.block-container{padding-top:1rem;}</style>", 
+                    unsafe_allow_html=True)
+
         # Show the app title
         st.title(self.app_name)
 
-        # Sidebar for navigation
-        page = st.sidebar.radio("Menu", self.pages,
-            format_func=lambda page: page["title"])
+        # Sidebar pages heading (to match Filters heading)
+        st.sidebar.write("### Pages")
+
+        # Sidebar for navigation     
+        page = st.sidebar.radio("Pages", self.pages,
+            format_func=lambda page: page["title"],
+            label_visibility="collapsed")
 
         # Run the selected page function
         page["function"]()

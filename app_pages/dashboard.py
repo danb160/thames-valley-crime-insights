@@ -25,6 +25,9 @@ def dashboard_body():
     area_options = ["All areas"] + sorted(summary["Area"].unique())
     crime_options = ["All crime types"] + sorted(summary["Crime type"].unique())
 
+    st.sidebar.write("---")
+    st.sidebar.write("### Filters")
+
     # Sidebar filters
     area = st.sidebar.selectbox("Select area", area_options)
     crime = st.sidebar.selectbox("Select crime type", crime_options)
@@ -32,7 +35,6 @@ def dashboard_body():
     # Name to show in chart titles (to make charts clearer)
     place = "the Thames Valley" if area == "All areas" else area
     
-
     # Filtered by area
     area_data = summary.copy()
     if area != "All areas":
