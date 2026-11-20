@@ -30,7 +30,7 @@ They are finding it hard to see crime patterns across 13 areas that the force op
 
 ## Dataset
 
-**Data Source:** [Thames Valley Police street-level crime data](https://data.police.uk/data/)
+**Data Source:** [DATA.POLICE.UK](https://data.police.uk/data/)
 
 **Size - Raw Data** made up of 36 monthly CSV files saved in `data/raw`.
 
@@ -236,7 +236,9 @@ thames-valley-crime-insights/
 
 ## Data Compliance and Legal Use
 
-The datasets used in this project are puplicly available at [data.police.uk](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). The data has been annoymised to protect privacy. The data is published under [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). This licence allows us to copy, publish, distribute, adapt and commercially exploit the data with attribution.
+- The datasets used in this project are puplicly available at [data.police.uk](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). The data has been annoymised to protect privacy. The data is published under [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). This licence allows us to copy, publish, distribute, adapt and commercially exploit the data with attribution.
+
+- This is an independent data analysis project for educational purposes. It is not affiliated with, endorsed by, or produced by Thames Valley Police or data.police.uk.
 
 ---
 
