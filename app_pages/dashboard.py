@@ -18,14 +18,14 @@ def dashboard_body():
     summary, locations = load_data()
 
     # Page heading and instructions
-    st.write("### Crime Dashboard")
+    st.write("## **Crime Dashboard**")
     st.write("Pick an area and a crime type to filter the data.")
 
-    # Explander with how the filters work
+    # Expander with how the filters work
     with st.expander("**How the filters work**"):
         st.markdown(""" Use the sidebar to select an area or crime type and the dashboard will update.
 
-**See below how the filters work on the dashboard**
+**Which filters affect each chart:**
 
 | Chart | Area filter | Crime filter | Extra |
 |---|---|---|---|
@@ -76,14 +76,13 @@ def dashboard_body():
     st.write("---")
     st.write(f"### Headline numbers for {place} ({crime_label})")
     col1, col2 = st.columns(2)
-    col1.metric("Total crimes for the selected area and crime type", f"{total:,}")
+    col1.metric("Total crimes (over 36 months)", f"{total:,}")
     col2.metric("Average crimes per month", f"{monthly_average:,.0f}")
 
     # Chart 1 - Total crimes by crime type (area filtered)
     st.write("---")
     st.write(f"### Crimes by type for {place}")
     st.write("All crime types reported from October 2023 to September 2026")
-    st.write("")
 
     # Option to hide the Violence and sexual offences crime type
     hide_vso = st.checkbox("Hide Violence and sexual offences for this chart",
@@ -123,7 +122,7 @@ def dashboard_body():
 
     # Chart 2 - Total crimes per month (area and crime filtered)
     st.write("---")
-    st.write(f"#### Crimes per month for {place}")
+    st.write(f"### Crimes per month for {place}")
     st.write(f"{crime_label.capitalize()} reported from October 2023 to September 2026")
 
     # Total crimes per month
@@ -153,7 +152,7 @@ def dashboard_body():
 
     # Chart 3 - Average crimes by month by season (area and crime filtered)(Q4)
     st.write("---")
-    st.write(f"#### Average crimes per month by season for {place}")
+    st.write(f"### Average crimes per month by season for {place}")
     st.write(f"{crime_label.capitalize()} reported from October 2023 to September 2026")
 
     # Average crimes per month in each season, in season order (as in 02_EDA)
@@ -188,17 +187,18 @@ def dashboard_body():
 
     # Chart 4 - Crimes by area (bubble map)
     st.write("---")
-    st.write(f"#### Crimes by area for {crime_label}")
+    st.write(f"### Crimes by area for {crime_label}")
     st.write("Reported from October 2023 to September 2026. "
-             "The bigger the bigger bubble = more crimes." )
+             "Bigger bubble = more crimes." )
 
-    # Total crimes per area, joined to each area'scentral location
+    # Total crimes per area, joined to each area's central location
     areas = crime_data.groupby("Area")["Count"].sum().reset_index()
     area_map = areas.merge(locations, on="Area")
 
     # Hover information for each bubble
-    hover = {"Count": ":, ", "Latitude": False, "Longitude": False}
+    hover = {"Count": ":,", "Latitude": False, "Longitude": False}
 
+    # Draw chart 4
     fig = px.scatter_mapbox(area_map, lat="Latitude", lon="Longitude", 
                             size="Count",
                             hover_name="Area", hover_data=hover,
