@@ -42,6 +42,14 @@ def summary_body():
 - The toolbar in the top-right of each chart allows you to download, zoom, pan or view it full-screen.
 """)
 
+    # AI use statement and credit
+    st.markdown("**AI use:** Claude was used to help plan this dashboard, suggest and check parts of the code and assist in drafting some labels and descriptions, which I edited. "
+                "The page content and results are from my own investigation and I typed, adapted and tested the code. "
+                "See project README for more detail.")
+    
+    # Credit for the multipage class
+    st.markdown("**Credit:** The page menu in this dashboard uses a MultiPage class adapted from the Code Institute Streamlit lesson.")
+
     # Non-endorsement statement
     st.markdown("**This is an independent data analysis project for educational purposes. It is not "
                 "affiliated with, endorsed by, or produced by Thames Valley Police or data.police.uk.**")
