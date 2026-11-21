@@ -1,8 +1,9 @@
+# MultiPage class adapted from the Code Institute Streamlit multi-page lesson
 import streamlit as st
 
 
 class MultiPage:
-    def __init__(self,  app_name) -> None:
+    def __init__(self, app_name) -> None:
 
         # Empty list to store the pages, and app name
         self.pages = []
