@@ -86,8 +86,8 @@ def dashboard_body():
 
     # Option to hide the Violence and sexual offences crime type
     hide_vso = st.checkbox("Hide Violence and sexual offences for this chart",
-    help="This crime type is much larger than the others. Hiding it makes the "
-    "smaller crime types easier to compare.")
+                            help="This crime type is much larger than the others. "
+                                 "Hiding it makes the smaller crime types easier to compare.")
     chart_data = area_data.copy()
     if hide_vso:
         chart_data = chart_data[chart_data["Crime type"] != "Violence and sexual offences"]
@@ -110,8 +110,8 @@ def dashboard_body():
                       height=500, bargap=0.15,
                       margin={"r": 70, "t": 30},
                       hoverlabel={"bgcolor": "#E6F1FB",
-                      "font": {"color": "#333333",
-                      "size": 14}})
+                                  "font": {"color": "#333333",
+                                           "size": 14}})
     
     fig.update_yaxes(tickfont={"color": "#333333"})
     fig.update_xaxes(tickfont={"color": "#333333"}, 
