@@ -257,7 +257,7 @@ Notes for reading the charts:
 
 **From the Statistical Testing**
 - **Small sample** - Each season only has 9 months of data, which is only a small sample for the t-test.
-- **Cause not tested** - The tests show the difference between summer and winter is real, but do not tell us **why** there it happens.
+- **Cause not tested** - Statistical testing shows the difference between summer and winter is real, but does not tell us **why** it happens.
 
 ---
 
