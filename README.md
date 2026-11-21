@@ -89,11 +89,11 @@ This makes using the datasets both faster and more efficient.
 
 **[Pandas](https://pandas.pydata.org/) and [NumPy](https://numpy.org/)** - For cleaning, filtering, and organising data
 
-**[Matplotlib](https://matplotlib.org/) and [Seaborn](https://seaborn.pydata.org/)** - For visualisations
+**[Matplotlib](https://matplotlib.org/) and [Seaborn](https://seaborn.pydata.org/)** - For notebook visualisations
+
+**[Plotly](https://plotly.com/python/) - For interactive dashboard charts
 
 **[Pingouin](https://pingouin-stats.org/)** - For statistical testing (Version 0.5.4)
-
-**[SciPy](https://scipy.org/)** - For statistical testing of the seasonal pattern (Question 4)
 
 **[Streamlit](https://streamlit.io/)** - To create the interactive dashboard
 
