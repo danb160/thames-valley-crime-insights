@@ -34,7 +34,7 @@ def findings_body():
    - Looking at the mix shows each area has its own pattern, which could help the police target specific crime types in specific areas.
     """)
 
-    # Expander for Question 
+    # Expander for Question 3
     with st.expander("**3. Has the number of crimes risen or fallen between October 2023 and September 2026?**"):
         st.markdown("""
    - Crime **has fallen very slightly** by 0.307% (595 fewer crimes) from Year 1 to Year 3 (October 2023 to September 2026).
@@ -43,16 +43,33 @@ def findings_body():
    - The monthly line chart shows crime peaks every summer (highest in July) and drops every winter. This suggests changes are mainly seasonal rather than a long-term trend (which is explored in Question 4).
     """)
 
-
     # Expander for Question 4
-    with st.expander("**4. Is there a seasonal pattern, and if so is the difference between summer and winter statistically different?**"):
+    with st.expander("**4. Is there a seasonal pattern, and if so is the difference between summer and winter statistically significant?**"):
         st.markdown("""
    - Yes, there is a clear **seasonal pattern**. Crime rises from winter through spring, to a peak in summer, then falls through autumn to its lowest point in winter.
+   - After carrying out a statistical test, we found that the difference between summer and winter crime values ***is*** **statistically significant**, and is unlikely to be down to chance alone.
    - Average crimes per month: Winter 14,458, Spring 16,335, Summer 17,560, Autumn 16,065.
    - Summer averages 3,102 more crimes per month than winter (21.46% higher).
-
-      Hypothesis Result:
-   - As the t-test p-value is less than 0.01 (3.6e-09 = 0.0000000036) which is **less than 0.05** we reject the null hypothesis. The difference between summer and winter crime values ***is*** **statistically significant**, and is unlikely to be down to chance alone (result from `03_statistical_testing.ipynb`).
-
-   - There is a clear **seasonal pattern**. Crime rises from winter through spring, to a peak in summer, then falls through autumn to its lowest point in winter. Summer averages 21.46% more crimes per month than winter (result from `02_EDA.ipynb`)
     """)
+
+    # Limitations of the analysis
+    st.warning("""
+
+**Limitations**
+
+**From Data Cleaning**
+- **Crimes with no location** - 13,132 crimes (2.21%) were removed. Violence and sexual offences, and Drugs are slightly under-counted by area, and Anti-social behaviour slightly over-represented, but the effect is small and does not change which crimes types are most common.
+- **Crimes outside Thames Valley** - 22 crimes recorded in Central Bedfordshire, Dacorum, and Basingstoke and Deane were removed, as these are not among the [13 local authorities that make up the Thames Valley Police area](https://www.westberks.gov.uk/article/42710/Police-Area-Returning-Officer-PARO-2024).
+- **Possible double counting** - 163 Crime IDs appear more than once (194 extra rows, 0.03%). These were kept, as they are too few to affect the results.
+
+**From the Data**
+- **Counts, not rates** - Larger areas naturally have more crime. Adding population data would allow a fairer comparison.
+- **Approximate locations** - Crimes are mapped to a nearby point for privacy.
+- **Recorded crime only** - Unreported crime is not included, so the real level of some crimes may be higher.
+- **Monthly data only** - No day or time, so seasons are based on the month.
+- **Three years only** - Each season only appears three times, which limits the trend analysis 
+
+**From the Statistical Testing**
+- **Small sample** - Each season only has 9 months of data, which is only a small sample for the t-test.
+- **Cause not tested** - Statistical testing shows the difference between summer and winter is real, but does not tell us **why** it happens.
+""")
