@@ -32,10 +32,11 @@ def summary_body():
 
 #### How to use this dashboard
 
-**The dashboard is made up of two pages**
+**The dashboard is made up of three pages**
 
 - **Project Summary** - Explains what the project is about, the data used, key questions, and how to use the dashboard.
 - **Crime Dashboard** - Sidebar filters for each area and crime type, headline numbers and four interactive charts.
+- **Key Findings** - Summarises the main insights discovered, and limitations of the analysis.
 
 **Features**
 - The charts in the dashboard are interactive and have hover boxes showing exact numbers.
