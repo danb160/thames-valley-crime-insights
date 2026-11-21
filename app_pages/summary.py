@@ -31,10 +31,15 @@ def summary_body():
 4. Is there a seasonal pattern, and is the summer vs winter difference significant?
 
 #### How to use this dashboard
-- Navigate through different sections to explore crime trends.
-- Use filters in the sidebar to focus on specific areas or crime types.
-- The visualisations in this dashboard are interactive; hover over elements for more details.
-- Insights are derived from the processed data to support evidence-based planning.
+
+**The dashboard is made up of two pages**
+
+- **Project Summary** - Explains what the project is about, the data used, key questions, and how to use the dashboard.
+- **Crime Dashboard** - Sidebar filters for each area and crime type, headline numbers and four interactive charts.
+
+**Features**
+- The charts in the dashboard are interactive and have hover boxes showing exact numbers.
+- The toolbar in the top-right of each chart allows you to download, zoom, pan or view it full-screen.
 """)
 
     # Non-endorsement statement
