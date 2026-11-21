@@ -21,6 +21,22 @@ def dashboard_body():
     st.write("### Crime Dashboard")
     st.write("Pick an area and a crime type to filter the data.")
 
+    # Explander with how the filters work
+    with st.expander("**How the filters work**"):
+        st.markdown(""" Use the sidebar to select an area or crime type and the dashboard will update.
+
+**See below how the filters work on the dashboard**
+
+| Chart | Area filter | Crime filter | Extra |
+|---|---|---|---|
+| **Headline numbers** | Yes | Yes | |
+| **Chart 1** - Crimes by type | Yes | No - always shows all crime types | Tick box to hide Violence and sexual offences |
+| **Chart 2** - Crimes per month | Yes | Yes | |
+| **Chart 3** - Average crimes per month by season | Yes | Yes | |
+| **Chart 4** - Bubble map of crimes by area | No - always shows all 13 areas | Yes | |
+        
+""")
+
     # Options for the sidebar filters
     area_options = ["All areas"] + sorted(summary["Area"].unique())
     crime_options = ["All crime types"] + sorted(summary["Crime type"].unique())
@@ -57,17 +73,20 @@ def dashboard_body():
     monthly_average = total / filtered["Month"].nunique()
 
     # Show the numbers together
+    st.write("---")
+    st.write(f"### Headline numbers for {place} ({crime_label})")
     col1, col2 = st.columns(2)
-    col1.metric("Total crimes", f"{total:,}")
+    col1.metric("Total crimes for the selected area and crime type", f"{total:,}")
     col2.metric("Average crimes per month", f"{monthly_average:,.0f}")
 
     # Chart 1 - Total crimes by crime type (area filtered)
     st.write("---")
-    st.write(f"#### Crimes by type for {place}")
+    st.write(f"### Crimes by type for {place}")
     st.write("All crime types reported from October 2023 to September 2026")
+    st.write("")
 
     # Option to hide the Violence and sexual offences crime type
-    hide_vso = st.checkbox("Hide Violence and sexual offences",
+    hide_vso = st.checkbox("Hide Violence and sexual offences for this chart",
     help="This crime type is much larger than the others. Hiding it makes the "
     "smaller crime types easier to compare.")
     chart_data = area_data.copy()
@@ -117,7 +136,7 @@ def dashboard_body():
 
     # Make the chart more readable
     fig.update_traces(hovertemplate="<b>%{x|%B %Y}</b><br>"
-                                    "Number of crimes=%{y}<extra></extra>")
+                                    "Number of crimes=%{y:,}<extra></extra>")
     fig.update_layout(font={"size": 14, "color": "#333333"},
                       height=500, margin={"r": 30, "t": 30},
                       hoverlabel={"bgcolor": "#E6F1FB",
@@ -170,8 +189,8 @@ def dashboard_body():
     # Chart 4 - Crimes by area (bubble map)
     st.write("---")
     st.write(f"#### Crimes by area for {crime_label}")
-    st.write("Reported from October 2023 to September 2026." )
-    st.write("Bigger bubble = more crimes" )
+    st.write("Reported from October 2023 to September 2026. "
+             "The bigger the bigger bubble = more crimes." )
 
     # Total crimes per area, joined to each area'scentral location
     areas = crime_data.groupby("Area")["Count"].sum().reset_index()
@@ -183,7 +202,9 @@ def dashboard_body():
     fig = px.scatter_mapbox(area_map, lat="Latitude", lon="Longitude", 
                             size="Count",
                             hover_name="Area", hover_data=hover,
-                            size_max=54, zoom=9,
+                            labels={"Count": "Number of crimes"},
+                            size_max=54, zoom=8.3,
+                            center={"lat": 51.71, "lon": -1.05},
                             color_discrete_sequence=["steelblue"],
                             mapbox_style="open-street-map")
 
@@ -194,5 +215,5 @@ def dashboard_body():
                                   "font": {"color": "#333333",
                                   "size": 14}})
     
-    # Display chart 4
-    st.plotly_chart(fig, use_container_width=True)
+    # Display chart 4 (scroll-zoom off - scroll move page not map)
+    st.plotly_chart(fig, use_container_width=True, config={"scrollZoom": False})
