@@ -5,7 +5,7 @@ def summary_body():
     """Build the Project Summary page."""
 
     # Page heading
-    st.write("### Project Summary")
+    st.write("## Project Summary")
 
     # Short description of the project
     st.info("This project explores street-level crime reported to Thames Valley Police "
