@@ -17,7 +17,7 @@ This project analyses 36 months of street-level crime data from October 2023 to 
 - Turn a large set of monthly crime records into clear, usable findings, and display them in an interactive dashboard.
 - To test whether future monthly crime levels can be predicted so that planning can be based on evidence rather than guesswork.
 
-***The end user:*** Would be police planners or key decision-makers, none of whom being a data specialist. That is why the findings will need to be presented in a simple interactive dashboard, where they can filter by area and crime type to see what the data shows for themselves.
+***The end user:*** Would be police planners or key decision-makers, none of whom are data specialists. That is why the findings will need to be presented in a simple interactive dashboard, where they can filter by area and crime type to see what the data shows for themselves.
 
 ---
 
@@ -124,6 +124,7 @@ Outputs were checked to verify accuracy and to ensure that they aligned with the
 | "Help me plan Question 3 (has crime risen or fallen?) in small steps." | Suggested a monthly line chart, a comparison of three October–September years, and a crime type comparison. | Decided the yearly comparison and line chart answered the question, and dropped the crime type comparison to fit the deadline (added to Further Development instead). |
 | "Check my findings match my outputs." | Pointed out typos and wording that didn't match the figures. | Questioned figures that hadn't been printed (e.g. "595 fewer crimes"), added code so every number came from an output, and chose 3 decimal places to show two similar figures were actually different. |
 | "Review my AI use section." | Suggested clearer wording. | Edited the wording to reflect how the tools were actually used. |
+| "My baseline R<sup>2</sup> is 0.363 with cv=5. Why?" | Explained the rows were in Crime type order, so the folds weren't mixed, and suggested a shuffled `K-Fold`. | Kept the original result in the notebook, explained what went wrong, then added the fix. This was kept so the whole process was visible. | 
 
 ---
 
