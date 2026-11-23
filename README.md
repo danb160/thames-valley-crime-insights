@@ -3,6 +3,7 @@
 ## README
 
 Thames Valley Police crime data analysis, October 2023 to September 2026.
+
 ---
 
 ## Context
@@ -14,9 +15,9 @@ This project analyses 36 months of street-level crime data from October 2023 to 
 
 ***The goals:*** 
 - Turn a large set of monthly crime records into clear, usable findings, and display them in an interactive dashboard.
-- To test whether future monthly crime levels can be predicted so that planning can be based on evidence rather than guesswork. The results of
+- To test whether future monthly crime levels can be predicted so that planning can be based on evidence rather than guesswork.
 
-***The end user:*** Would be police planners or key decision-makers, none of which being a data specialist. That is why the findings will need to be presented in a simple interactive dashboard, where they can filter by area and crime type to see what the data shows for themselves.
+***The end user:*** Would be police planners or key decision-makers, none of whom being a data specialist. That is why the findings will need to be presented in a simple interactive dashboard, where they can filter by area and crime type to see what the data shows for themselves.
 
 ---
 
@@ -60,7 +61,7 @@ This makes using the datasets both faster and more efficient.
 4. Is there a seasonal pattern, and if so is the difference between summer and winter statistically significant?
 5. Can monthly crime counts be predicted for an area and crime type, if so which model does it best?
 
-(See below for result)
+(See below for results)
 
 ---
 
@@ -91,7 +92,7 @@ This makes using the datasets both faster and more efficient.
 
 **[Matplotlib](https://matplotlib.org/) and [Seaborn](https://seaborn.pydata.org/)** - For notebook visualisations
 
-**[Plotly](https://plotly.com/python/) - For interactive dashboard charts
+**[Plotly](https://plotly.com/python/)** - For interactive dashboard charts
 
 **[Pingouin](https://pingouin-stats.org/)** - For statistical testing (Version 0.5.4)
 
@@ -193,15 +194,13 @@ thames-valley-crime-insights/
       Hypothesis Result:
    - As the t-test p-value is less than 0.01 (3.6e-09 = 0.0000000036) which is **less than 0.05** we reject the null hypothesis. The difference between summer and winter crime values ***is*** **statistically significant**, and is unlikely to be down to chance alone (result from `03_statistical_testing.ipynb`).
 
-   - There is a clear **seasonal pattern**. Crime rises from winter through spring, to a peak in summer, then falls through autumn to its lowest point in winter. Summer averages 21.46% more crimes per month than winter (result from `02_EDA.ipynb`)
-
 <br>
 
 5. Can monthly crime counts be predicted for an area and crime type, if so which model does it best?
 
    - Yes, monthly crime counts can be predicted for an area and crime type, and the **Random forest** model does it best (though it does have some limitations - see below)
 
-   - For year 4, it predicts between 14,133 crimes (February 2027) and 18,321 (July 2027) crimes a month will be reported. We saw by using this model, the same seasonal pattern as what was observed answering *Question 4*.
+   - From October 2026 to September 2027, it predicts between 14,133 crimes (February 2027) and 18,321 (July 2027) crimes a month will be reported. We saw by using this model, the same seasonal pattern as what was observed answering *Question 4*.
 
 ---
 
@@ -211,10 +210,11 @@ thames-valley-crime-insights/
 
 A Streamlit dashboard presents the findings of the project for non-technical users, such as police planners or key decision-makers. Users can filter the data by area and crime type to explore the patterns that the data has uncovered for themselves.
 
-**The dashboard is made up of two pages:**
+**The dashboard is made up of three pages:**
 
 - **Project Summary** - Explains what the project is about, the data used, key questions, and how to use the dashboard.
 - **Crime Dashboard** - Sidebar filters for each area and crime type, headline numbers and four interactive charts.
+- **Key Findings** - Summarises the main insights discovered, and limitations of the analysis.
 
 Notes for reading the charts: 
 - All charts have hover boxes showing exact numbers, plus the toolbar allowing the user to:
