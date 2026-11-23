@@ -52,10 +52,16 @@ def findings_body():
    - Summer averages 3,102 more crimes per month than winter (21.46% higher).
     """)
 
-    # Limitations of the analysis
-    st.warning("""
+    # Expander for Question 5
+    with st.expander("**5. Can monthly crime counts be predicted for an area and crime type, if so which model does it best?**"):
+        st.markdown("""
+   - Yes, monthly crime counts can be predicted for an area and crime type, and the **Random forest** model does it best (though it does have some limitations - see below)
+   - October 2026 to September 2027, the model predicts between 14,133 crimes (February 2027) and 18,321 (July 2027) crimes a month will be reported. We saw by using this model, the same seasonal pattern as what was observed answering *Question 4*.
+    """)
 
-**Limitations**
+    # Limitations of the analysis - hidden until clicked
+    with st.expander(":orange[**⚠️Limitations of the Analysis (Click to expand)**]"):
+        st.warning("""
 
 **From Data Cleaning**
 - **Crimes with no location** - 13,132 crimes (2.21%) were removed. Violence and sexual offences, and Drugs are slightly under-counted by area, and Anti-social behaviour slightly over-represented, but the effect is small and does not change which crime types are most common.
@@ -67,9 +73,15 @@ def findings_body():
 - **Approximate locations** - Crimes are mapped to a nearby point for privacy.
 - **Recorded crime only** - Unreported crime is not included, so the real level of some crimes may be higher.
 - **Monthly data only** - No day or time, so seasons are based on the month.
-- **Three years only** - Each season only appears three times, which limits the trend analysis.
+- **Three years only** - Each season only appears three times, which limits the trend analysis. This also means the months only appear twice in the model's training data.
 
 **From the Statistical Testing**
 - **Small sample** - Each season only has 9 months of data, which is only a small sample for the t-test.
 - **Cause not tested** - Statistical testing shows the difference between summer and winter is real, but does not tell us **why** it happens.
+
+**From the Modelling**
+
+- **Only area, crime type and month are used** - Other factors such as weather and police activity are not taken into account.
+- **The model does not use the year** - So, it treats every October as the same, it predicts typical levels, not sudden rises or falls.
+- **Predictions are only for one year** - The pattern would simply repeat. Another consideration is that predictions are less reliable the further ahead they go.
 """)
