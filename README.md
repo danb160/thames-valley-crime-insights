@@ -364,6 +364,8 @@ Notes for reading the charts:
 - **Note:** pingouin is only used locally for statistical testing and is removed from `requirements.txt` before deploying to Heroku.
 - **AI:** Claude was used to troubleshoot and help resolve this (see AI use section).
 
+**Incorrect cross-Validation score**
+
 - **Problem:** Cross-validation of `cv=5` gave the baseline R<sup>2</sup> of -0.363, when the average baseline score should be close to 0.
 - **Cause:** The data is stored in Crime type order in `crime_summary.csv`, so without shuffling each fold held different crime types to the ones the model was trained on.
 - **Fix:** Used `KFold(n_splits=5, shuffle=True, random_state=101)`, so each fold has a mix of rows. The original result and explanation were kept in `04_modelling.ipynb` to show the process.
@@ -375,12 +377,13 @@ Notes for reading the charts:
 
 - Clone this repository to your local machine.
 - Create a virtual environment using Python 3.12.8 and activate it.
+- Install the required python packages:
 
 ``` bash
-pip install -requirements.txt
+pip install -r requirements.txt
 ```
 
-- To run the notebooks, remove the `#` from the pingoiun line in requirements.txt and run the install again.
+- To run the notebooks, remove the `#` from the pingouin line in requirements.txt and run the install again.
 
 - To run the dashboard locally:
 
