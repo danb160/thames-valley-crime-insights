@@ -199,7 +199,9 @@ thames-valley-crime-insights/
 
 5. Can monthly crime counts be predicted for an area and crime type, if so which model does it best?
 
-   xxxxxxxxx
+   - Yes, monthly crime counts can be predicted for an area and crime type, and the **Random forest** model does it best (though it does have some limitations - see below)
+
+   - For year 4, it predicts between 14,133 crimes (February 2027) and 18,321 (July 2027) crimes a month will be reported. We saw by using this model, the same seasonal pattern as what was observed answering *Question 4*.
 
 ---
 
@@ -235,10 +237,6 @@ Notes for reading the charts:
 | **Chart 4** - Bubble map of crimes by area | No - always shows all 13 areas | Yes | |
 ---
 
-
-
----
-
 ## Recognised Limitations
 
 **From Data Cleaning**
@@ -253,11 +251,18 @@ Notes for reading the charts:
 - **Approximate locations** - Crimes are mapped to a nearby point for privacy.
 - **Recorded crime only** - Unreported crime is not included, so the real level of some crimes may be higher.
 - **Monthly data only** - No day or time, so seasons are based on the month.
-- **Three years only** - Each season only appears three times, which limits the trend analysis 
+- **Three years only** - Each season only appears three times, which limits the trend analysis. This also means the months only appear twice in the model's training data.
 
 **From the Statistical Testing**
 - **Small sample** - Each season only has 9 months of data, which is only a small sample for the t-test.
 - **Cause not tested** - Statistical testing shows the difference between summer and winter is real, but does not tell us **why** it happens.
+
+**From the Modelling**
+
+- **Only area, crime type and month are used** - Other factors such as weather and police activity are not taken into account.
+- **The model does not use the year** - So, it treats every October as the same, it predicts typical levels, not sudden rises or falls.
+- **Predictions are only for one year** - The pattern would simply repeat. Another consideration is that predictions are less reliable the further ahead they go.
+- **Only reported crime** - It predicts recorded crime, not all crime.
 
 ---
 
@@ -266,7 +271,7 @@ Notes for reading the charts:
 - Add ONS data to investigate crimes per 1,000 people instead of as raw counts. This would give a fairer comparison as larger areas such as Buckinghamshire naturally have more reported crime.
 - Compare the change in crime type between Year 1 and 3. This would show if some individual crime types rose while others fell, as overall crime stayed level.
 - Further statistical testing to compare all four seasons at once by using the **ANOVA** testing method.
-
+- Tune the model with `GridSearchCV`, and add more years of data.
 ---
 
 ## Data Compliance and Legal Use
