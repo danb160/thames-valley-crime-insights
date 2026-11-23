@@ -237,7 +237,7 @@ The project follows five stages, four notebooks and one stage of deploying an in
 
    - Crime **has fallen very slightly** by 0.307% (595 fewer crimes) from Year 1 to Year 3 (October 2023 to September 2026).
    - It dipped slightly in Year 2 (down by 0.615%), then rose again in Year 3 (up by 0.310%).
-   - The change is so small that crime has effectively stayed **level**
+   - The change is so small that crime has effectively stayed **level**.
    - The monthly line chart shows crime peaks every summer (highest in July) and drops every winter. This suggests changes are mainly seasonal rather than a long-term trend (which is explored in Question 4).
    
 <br>
@@ -378,7 +378,7 @@ Notes for reading the charts:
 
 - **Problem:** The histogram in `02_EDA.ipynb` did not display. Instead the output showed `<Figure 1000x600 with 1 Axes>`.
 - **Cause:** Jupyter in VS Code was not set to show Matplotlib charts inside the notebook.
-- **Fix:** Added `%matplotlib inline`to the setup cell, then restarted the kernel and ran all cells.
+- **Fix:** Added `%matplotlib inline` to the setup cell, then restarted the kernel and ran all cells.
 - **AI:** Claude was used to troubleshoot and help resolve this (see AI use section).
 
 **pingouin install error**
