@@ -203,6 +203,7 @@ The project follows five stages, four notebooks and one stage of deploying an in
 - The 36 raw data files are kept unchanged in `data/raw`, and the 3 cleaned data files are stored in `data/clean`.
 - The dashboard uses only the small, cleaned summary and location files. The notebooks and large data files are omitted from Heroku using `.slugignore`.
 - Git and Github were used for version control, with small commits at each stage.
+
 ---
 
 ## Answers to our Key Analytical Questions
@@ -289,6 +290,7 @@ Notes for reading the charts:
 | **Chart 2** - Crimes per month | Yes | Yes | |
 | **Chart 3** - Average crimes per month by season | Yes | Yes | |
 | **Chart 4** - Bubble map of crimes by area | No - always shows all 13 areas | Yes | |
+
 ---
 
 ## Recognised Limitations
@@ -326,11 +328,12 @@ Notes for reading the charts:
 - Compare the change in crime type between Year 1 and 3. This would show if some individual crime types rose while others fell, as overall crime stayed level.
 - Further statistical testing to compare all four seasons at once by using the **ANOVA** testing method.
 - Tune the model with `GridSearchCV`, and add more years of data.
+
 ---
 
 ## Data Compliance and Legal Use
 
-- The datasets used in this project are puplicly available at [data.police.uk](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). The data has been annoymised to protect privacy. The data is published under [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). This licence allows us to copy, publish, distribute, adapt and commercially exploit the data with attribution.
+- The datasets used in this project are publicly available at [data.police.uk](https://data.police.uk/data/). The data has been anonymised to protect privacy. The data is published under [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). This licence allows us to copy, publish, distribute, adapt and commercially exploit the data with attribution.
 
 - This is an independent data analysis project for educational purposes. It is not affiliated with, endorsed by, or produced by Thames Valley Police or data.police.uk.
 
@@ -343,7 +346,7 @@ Notes for reading the charts:
 - **Problem:** Installing ppscore 1.1.0 failed with `ModuleNotFoundError: No module named 'pkg_resources'`.
 - **Cause:** ppscore is an older package that relies on a part of setuptools that newer versions have removed.
 - **Fix:** Installed an older setuptools with `pip install "setuptools<81" wheel`, then installed ppscore with `pip install --no-build-isolation ppscore==1.1.0`.
-- **Note:** ppscore is only used locally for analysis and is removed from `requirements.txt` before deploying to Heroku.
+- **Note:** ppscore  was used for analysis, but was not needed in the final notebooks, so is commented out in `requirements.txt`.
 - **AI:** Claude was used to troubleshoot and help resolve this (see AI use section).
 
 **Charts not showing in the notebook**
