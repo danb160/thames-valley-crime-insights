@@ -297,7 +297,7 @@ Notes for reading the charts:
 
 **From Data Cleaning**
 
-- **Crimes with no location** - 13,132 crimes (2.21%) were removed. Violence and sexual offences, and Drugs are slightly under-counted by area, and Anti-social behaviour slightly over-represented, but the effect is small and does not change which crimes types are most common.
+- **Crimes with no location** - 13,132 crimes (2.21%) were removed. Violence and sexual offences, and Drugs are slightly under-counted by area, and Anti-social behaviour slightly over-represented, but the effect is small and does not change which crime types are most common.
 - **Crimes outside Thames Valley** - 22 crimes recorded in Central Bedfordshire, Dacorum, and Basingstoke and Deane were removed, as these are not among the [13 local authorities that make up the Thames Valley Police area](https://www.westberks.gov.uk/article/42710/Police-Area-Returning-Officer-PARO-2024).
 - **Possible double counting** - 163 Crime IDs appear more than once (194 extra rows, 0.03%). These were kept, as they are too few to affect the results.
 
@@ -364,18 +364,28 @@ Notes for reading the charts:
 - **Note:** pingouin is only used locally for statistical testing and is removed from `requirements.txt` before deploying to Heroku.
 - **AI:** Claude was used to troubleshoot and help resolve this (see AI use section).
 
+- **Problem:** Cross-validation of `cv=5` gave the baseline R<sup>2</sup> of -0.363, when the average baseline score should be close to 0.
+- **Cause:** The data is stored in Crime type order in `crime_summary.csv`, so without shuffling each fold held different crime types to the ones the model was trained on.
+- **Fix:** Used `KFold(n_splits=5, shuffle=True, random_state=101)`, so each fold has a mix of rows. The original result and explanation were kept in `04_modelling.ipynb` to show the process.
+- **AI:** Claude was used to troubleshoot and help resolve this.
+
 ---
 
 ## How to Run This Project
 
 - Clone this repository to your local machine.
 - Create a virtual environment using Python 3.12.8 and activate it.
-- Install the older setuptools needed for ppscore, then the required Python packages:
+
+``` bash
+pip install -requirements.txt
+```
+
+- To run the notebooks, remove the `#` from the pingoiun line in requirements.txt and run the install again.
+
+- To run the dashboard locally:
 
 ```bash
-pip install "setuptools<81" wheel
-pip install --no-build-isolation ppscore==1.1.0
-pip install -r requirements.txt
+streamlit run app.py
 ```
 
 ---
