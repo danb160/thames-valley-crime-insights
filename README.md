@@ -82,9 +82,9 @@ This makes using the datasets both faster and more efficient.
 
 **[Python](https://www.python.org/)** - As the programming language (Version 3.12.8)
 
-**VS Code** - As the Integrated Development Environment (IDE)
+**[VS Code](https://code.visualstudio.com/)** - As the Integrated Development Environment (IDE)
 
-**Jupyter Notebooks** - As the working environment
+**[Jupyter Notebooks](https://jupyter.org/)** - As the working environment
 
 **[Git](https://git-scm.com/) / [GitHub](https://github.com/)** - For version control
 
@@ -101,6 +101,8 @@ This makes using the datasets both faster and more efficient.
 **[Heroku](https://www.heroku.com/)** - For hosting the dashboard
 
 **[Scikit-learn](https://scikit-learn.org/)** - For building and evaluating ML models for predicting crime counts (Question 5)
+
+**[Grammarly Character Counter](https://www.grammarly.com/character-counter)** - For checking the length of commit messages.
 
 ---
 
