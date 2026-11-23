@@ -56,7 +56,7 @@ def findings_body():
     with st.expander("**5. Can monthly crime counts be predicted for an area and crime type, if so which model does it best?**"):
         st.markdown("""
    - Yes, monthly crime counts can be predicted for an area and crime type, and the **Random forest** model does it best (though it does have some limitations - see below)
-   - October 2026 to September 2027, the model predicts between 14,133 crimes (February 2027) and 18,321 (July 2027) crimes a month will be reported. We saw by using this model, the same seasonal pattern as what was observed answering *Question 4*.
+   - From October 2026 to September 2027, the model predicts between 14,133 crimes (February 2027) and 18,321 (July 2027) crimes a month will be reported. We saw by using this model, the same seasonal pattern as what was observed answering *Question 4*.
     """)
 
     # Limitations of the analysis - hidden until clicked
