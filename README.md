@@ -261,6 +261,18 @@ The project follows five stages, four notebooks and one stage of deploying an in
 
 ---
 
+## Recommendations
+
+- **Plan for the summer peak** - Crime is significantly higher in summer than winter, so police presence and campaigns could be increased from late spring.
+- **Focus on Violence and sexual offences** - It is the single largest reported crime in every Thames Valley area, making this a key crime type for the police to focus on.
+- **Target local patterns** - For example:
+   - **Shoplifting** in Reading, Oxford and Cherwell.
+   - **Vehicle crime** in Slough, and Windsor and Maidenhead.
+   - **Bicycle theft** in Oxford.
+- **Use the prediction for planning** - The model predicts the same seasonal pattern for October 2026 to September 2027, which peaks in July.
+
+---
+
 ## Dashboard
 
 [**Click here to be taken to the dashboard**](https://thames-valley-crime-insights-cb70f6424e20.herokuapp.com/)
