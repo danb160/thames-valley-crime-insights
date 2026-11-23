@@ -157,6 +157,51 @@ thames-valley-crime-insights/
 
 ## Methodology and Data Management
 
+The project follows five stages, four notebooks and one stage of deploying an interactive dashboard.
+
+**1. Extract, Transform and Load Data (`01_ETL.ipynb`)**
+- Combined 36 monthly files into one dataset of 592,926 rows and 12 columns.
+- Removed 13,132 rows with no location (2.21%), and 22 rows outside the Thames Valley areas.
+- Kept 194 rows where a crime ID appears more than once (0.03%), as they are too few to affect the results (see Recognised Limitations)
+- Kept ***Month***, ***Area*** and ***Crime type***, which we need to answer our key questions.
+- Added a ***Season*** column, which we need for our statistical test.
+- Saved a cleaned dataset of 579,772 rows, a summary of 6,552 rows, and the centre point of each of the areas for a bubble map.
+- Reduced the data from 592,926 rows and 12 columns (131.9 MB on disk, 375.1 MB in memory) to 579,772 rows and 4 columns (29.1 MB on disk, 106.6 MB in memory).
+
+**2. Exploratory data analysis (`02_EDA.ipynb`)**
+- Used the cleaned dataset from `01_ETL.ipynb` to answer Key Analytical Questions 1-3.
+- Described the basic characteristics of the data: averages, spread, distributions, outliers and correlations.
+- Found which crime types are most common, how crime differs between the 13 areas and whether crime has risen or fallen over the 36 months.
+- Explored the seasonal pattern (if any), ready for the statistical test in `03_statistical_testing.ipynb`.
+- Decided which charts to rebuild for the Streamlit dashboard.
+
+**3. Statistical Testing (`03_statistical_testing.ipynb`)**
+- Used a T-test to compare whether the difference in crime between summer and winter (which we found out in `02_EDA.ipynb`) is **statistically significant**, or could be down to chance (Key Question 4).
+
+**4. Modelling (`04_modelling.ipynb`)**
+- Answered Key Question 5: can we predict the number of crimes for an area, crime type and month?
+- Compared a baseline with models suitable for the data that we have, then decided which is the best.
+- Chose **Random forest** as the model to use, as it scored best on all three measures (**R<sup>2</sup>**,**MAE**, and **RMSE**) and overfitted less than the decision tree.
+- Tested the chosen model **Random forest** on data that it has not seen (year 3). It scored an **R<sup>2</sup>** of 0.982, **MAE** of 12.0 crimes and **RMSE** of 19.1. These scores are slightly better than its cross-validation scores across all metrics, so the model works well on data it has not yet seen and it is not **overfitting**. It is also far better than the baseline.
+- Retrained the model on all three years to predict crime counts for October 2026 to September 2027.
+
+**5. Dashboard (`app.py` and `app_pages/`)**
+- The interactive dashboard was built with a MultiPage class with a sidebar allowing the user to navigate between pages and filter the data (on the crime dashboard).
+- The three dashboard pages:
+   - **Project Summary** - Showing a broad outline of the project, the data, key questions and how to use the dashboard.
+   - **Crime Dashboard** - Visualisations allowing the user to filter the data to explore the data themselves (See Dashboard section for which filters affect each chart).
+   - **Key Findings** - Answers to the key questions and advising of the limitations and scope of the data.
+- Charts were chosen to demonstrate the findings of the data for a non-technical end-user. They were rebuilt using Plotly and displayed in Streamlit with filters for ***Area*** and ***Crime type***:
+   - **Horizontal bar chart** - total crimes per crime type, with a filter to remove the highest crime type ***Violence and sexual offences*** to make the comparison of smaller crimes easier (Question 1)
+   - **Line chart** - total crimes per month (Question 3)
+   - **Bar chart** - average crimes per month by season (Question 4)
+   - **Bubble map** - crime counts by area (Question 2)
+- Deployed to Heroku, so the end user can access the dashboard and explore the data without installing anything.
+
+**Data Management:**
+- The 36 raw data files are kept unchanged in `data/raw`, and the 3 cleaned data files are stored in `data/clean`.
+- The dashboard uses only the small, cleaned summary and location files. The notebooks and large data files are omitted from Heroku using `.slugignore`.
+- Git and Github were used for version control, with small commits at each stage.
 ---
 
 ## Answers to our Key Analytical Questions
