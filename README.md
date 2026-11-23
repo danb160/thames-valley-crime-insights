@@ -331,6 +331,16 @@ Notes for reading the charts:
 
 ---
 
+## Reflection on the project
+
+- **What went well?:** I think the overall process of putting the project together went well. I feel I broke down the project into realistic pieces and worked through them one-by-one. I think the dashboard looks good, informative and shows information in a clear manner for the end user, which was exactly what I set out to do.
+- **What was the hardest part, and how did I overcome it?** The hardest part of the project was time-management. As this is the first project of this scale I had some hesitation on using new tools such as Heroku and building into it the findings of my data exploration and results.
+   I overcame the Heroku hesitation by using as much information as was available to me, such as the Code Institute deploy and setup guides, and some additional help from Claude AI.
+- **What would I do differently?** I would try to give myself more time (where possible) to get through each of the stages, and to try to anticipate any problems that I might face and take steps to mitigate them as early as possible. 
+- **What did I learn?** I learned that I am able to create a great looking project from start-to-finish. I have also gained a better understanding of both the code and end-to-end process (ETL, EDA, statistical testing, and modelling). I learned that while AI tools have a vast amount of knowledge, it is me that ultimately guides the direction of the project.
+- **How can I use the skills learned in this project in the future?** I came across a few bugs as I was working through the project; AI, careful consideration and belief in 'the process' will help me in the future. When using AI tools I have realised that I need to use correct terminology where possible, avoid being vague, make the ask as specific as possible and not have any hesitation in challenging what the AI is telling me.
+---
+
 ## Data Compliance and Legal Use
 
 - The datasets used in this project are publicly available at [data.police.uk](https://data.police.uk/data/). The data has been anonymised to protect privacy. The data is published under [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). This licence allows us to copy, publish, distribute, adapt and commercially exploit the data with attribution.
