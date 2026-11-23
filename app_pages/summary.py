@@ -29,6 +29,7 @@ def summary_body():
 2. How does crime differ between the 13 areas?
 3. Has crime risen or fallen over the 36 months?
 4. Is there a seasonal pattern, and is the summer vs winter difference significant?
+5. Can monthly crime counts be predicted for an area and crime type, and if so, which model does it best? (answered in key findings).
 
 #### How to use this dashboard
 
