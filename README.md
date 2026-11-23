@@ -131,6 +131,11 @@ Outputs were checked to verify accuracy and to ensure that they aligned with the
 
 ```
 thames-valley-crime-insights/
++---app_pages
+|   +---multi_page.py                  # MultiPage class for page navigation
+|   +---summary.py                     # Project summary page
+|   +---dashboard.py                   # Crime dashboard page
+|   \---findings.py                    # Key findings page (answers and limitations)
 +---data
 |   +---clean                          # 3 cleaned datasets (see Dataset section)
 |   \---raw                            # Containing 36 monthly raw .csv files
@@ -139,9 +144,12 @@ thames-valley-crime-insights/
 |   +---02_EDA.ipynb                   # Exploratory data analysis (Questions 1-3 and partly 4)
 |   +---03_statistical_testing.ipynb   # Summer vs winter statistical test (Question 4)
 |   \---04_modelling.ipynb             # Predicting monthly crime counts (Question 5)
++---.python-version                    # Python version for Heroku
++---.slugignore                        # Files Heroku does not need for the dashboard
 +---app.py                             # Streamlit dashboard
 +---Procfile                           # Tells Heroku how to start the dashboard
 +---requirements.txt                   # Python packages needed to run this project
++---setup.sh                           # Streamlit settings for Heroku
 \---README.md                          # Project documentation
 ```
 
