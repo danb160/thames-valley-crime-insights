@@ -106,8 +106,10 @@ This makes using the datasets both faster and more efficient.
 
 ## AI Use
 
-AI tools were used to support this project. The project idea, dataset choice, key questions, and analytical decisions are my own.
-AI tools helped to plan the notebook structure and suggest code, which I checked, typed, ran and adapted myself where needed. AI helped draft some explanations and findings based on my outputs. Where this happened I checked and edited the wording myself.
+AI tools were used to support this project. The project idea, dataset choice, key questions, and analytical decisions are my own, with AI explaining the options where I needed it (especially with the modelling).
+
+AI tools helped to plan the notebook structure, suggest code, and draft explanations and findings throughout my project based on my prompts and guided by my outputs. Where this happened, I checked, typed, ran and adapted the code and edited the explanations myself.
+
 Outputs were checked to verify accuracy and to ensure that they aligned with the overall goals of the project. For example, results were checked against earlier notebooks and my lesson notes, and Copilot inline suggestions that changed columns or variables were corrected.
 
 **AI - Google Gemini** - Initial discussion to assess the viability of the project and dataset
@@ -124,7 +126,7 @@ Outputs were checked to verify accuracy and to ensure that they aligned with the
 | "Help me plan Question 3 (has crime risen or fallen?) in small steps." | Suggested a monthly line chart, a comparison of three October–September years, and a crime type comparison. | Decided the yearly comparison and line chart answered the question, and dropped the crime type comparison to fit the deadline (added to Further Development instead). |
 | "Check my findings match my outputs." | Pointed out typos and wording that didn't match the figures. | Questioned figures that hadn't been printed (e.g. "595 fewer crimes"), added code so every number came from an output, and chose 3 decimal places to show two similar figures were actually different. |
 | "Review my AI use section." | Suggested clearer wording. | Edited the wording to reflect how the tools were actually used. |
-| "My baseline R<sup>2</sup> is 0.363 with cv=5. Why?" | Explained the rows were in Crime type order, so the folds weren't mixed, and suggested a shuffled `K-Fold`. | Kept the original result in the notebook, explained what went wrong, then added the fix. This was kept so the whole process was visible. | 
+| "My baseline R<sup>2</sup> is -0.363 with cv=5. Why?" | Explained the rows were in Crime type order, so the folds weren't mixed, and suggested a shuffled `KFold`. | Kept the original result in the notebook, explained what went wrong, then added the fix. This was kept so the whole process was visible. | 
 
 ---
 
@@ -333,12 +335,13 @@ Notes for reading the charts:
 
 ## Reflection on the project
 
-- **What went well?:** I think the overall process of putting the project together went well. I feel I broke down the project into realistic pieces and worked through them one-by-one. I think the dashboard looks good, informative and shows information in a clear manner for the end user, which was exactly what I set out to do.
+- **What went well?** I think the overall process of putting the project together went well. I feel I broke down the project into realistic pieces and worked through them one-by-one. I think the dashboard looks good, informative and shows information in a clear manner for the end user, which was exactly what I set out to do.
 - **What was the hardest part, and how did I overcome it?** The hardest part of the project was time-management. As this is the first project of this scale I had some hesitation on using new tools such as Heroku and building into it the findings of my data exploration and results.
    I overcame the Heroku hesitation by using as much information as was available to me, such as the Code Institute deploy and setup guides, and some additional help from Claude AI.
 - **What would I do differently?** I would try to give myself more time (where possible) to get through each of the stages, and to try to anticipate any problems that I might face and take steps to mitigate them as early as possible. 
 - **What did I learn?** I learned that I am able to create a great looking project from start-to-finish. I have also gained a better understanding of both the code and end-to-end process (ETL, EDA, statistical testing, and modelling). I learned that while AI tools have a vast amount of knowledge, it is me that ultimately guides the direction of the project.
 - **How can I use the skills learned in this project in the future?** I came across a few bugs as I was working through the project; AI, careful consideration and belief in 'the process' will help me in the future. When using AI tools I have realised that I need to use correct terminology where possible, avoid being vague, make the ask as specific as possible and not have any hesitation in challenging what the AI is telling me.
+
 ---
 
 ## Data Compliance and Legal Use
@@ -356,7 +359,7 @@ Notes for reading the charts:
 - **Problem:** Installing ppscore 1.1.0 failed with `ModuleNotFoundError: No module named 'pkg_resources'`.
 - **Cause:** ppscore is an older package that relies on a part of setuptools that newer versions have removed.
 - **Fix:** Installed an older setuptools with `pip install "setuptools<81" wheel`, then installed ppscore with `pip install --no-build-isolation ppscore==1.1.0`.
-- **Note:** ppscore  was used for analysis, but was not needed in the final notebooks, so is commented out in `requirements.txt`.
+- **Note:** ppscore  was installed for analysis, but was not needed in the final notebooks, so is commented out in `requirements.txt`.
 - **AI:** Claude was used to troubleshoot and help resolve this (see AI use section).
 
 **Charts not showing in the notebook**
@@ -411,4 +414,4 @@ streamlit run app.py
 - Code Institute lesson materials were used as a learning resource for the methods applied in this project.
 - The `MultiPage` class in `app_pages/multi_page.py` was adapted from the Code Institute Streamlit multi-page lesson.
 - The Heroku deployment files (`Procfile` and `setup.sh`) follow the Code Institute "Deploy dashboard" guide.
-- The general structure of the notebooks and this README is based on my own Reading food hygiene project, which I have adapted and expanded on to suit this project.
+- The general structure of the notebooks and this README is based on my own Reading food hygiene project, which I have heavily adapted and expanded on to suit this project.
