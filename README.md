@@ -359,7 +359,7 @@ Notes for reading the charts:
 - **Problem:** Installing ppscore 1.1.0 failed with `ModuleNotFoundError: No module named 'pkg_resources'`.
 - **Cause:** ppscore is an older package that relies on a part of setuptools that newer versions have removed.
 - **Fix:** Installed an older setuptools with `pip install "setuptools<81" wheel`, then installed ppscore with `pip install --no-build-isolation ppscore==1.1.0`.
-- **Note:** ppscore  was installed for analysis, but was not needed in the final notebooks, so is commented out in `requirements.txt`.
+- **Note:** ppscore  was installed for analysis, but was not needed in the final notebooks, so it was removed from `requirements.txt`.
 - **AI:** Claude was used to troubleshoot and help resolve this (see AI use section).
 
 **Charts not showing in the notebook**
@@ -374,7 +374,7 @@ Notes for reading the charts:
 - **Problem:** Installing pingouin upgraded numpy, pandas, matplotlib and scikit-learn past the versions in `requirements.txt`, then failed with `OSError: [WinError 5] Access is denied`.
 - **Cause:** The latest pingouin (0.7.0) needs newer versions of these packages. The install failed part-way because the notebook kernel and OneDrive were using the files.
 - **Fix:** Closed VS Code, deleted the leftover `~` folders in `.venv\Lib\site-packages`, then reinstalled the pinned versions from the terminal and installed an older pingouin with `pip install pingouin==0.5.4 "xarray<2025"`. Checked with `pip check`.
-- **Note:** pingouin is only used locally for statistical testing and is removed from `requirements.txt` before deploying to Heroku.
+- **Note:** pingouin is only used locally for statistical testing and is commented out in `requirements.txt` for Heroku.
 - **AI:** Claude was used to troubleshoot and help resolve this (see AI use section).
 
 **Incorrect cross-Validation score**
