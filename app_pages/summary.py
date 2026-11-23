@@ -42,7 +42,7 @@ def summary_body():
 **Features**
 - The charts in the dashboard are interactive and have hover boxes showing exact numbers.
 - The toolbar in the top-right of each chart allows you to download, zoom, pan or view it full-screen.
-- The sidebar on all pages allow you to change pages.
+- The sidebar on all pages allows you to change pages.
 - The Crime Dashboard page also allows you to filter the data by area and crime type.
 """)
 
